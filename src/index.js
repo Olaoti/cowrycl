@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import "./fonts/BR Firma Light.otf";
 import "./fonts/BR Firma Bold.otf";
+import "./fonts/BR Firma Medium.otf";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

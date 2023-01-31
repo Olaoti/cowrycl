@@ -1,48 +1,58 @@
 import React, { useState, useEffect } from "react";
 import logo from "../Assets/logo.svg";
+import plan from "../Assets/navbar/plan.svg";
+import save from "../Assets/navbar/save.svg";
+import invest from "../Assets/navbar/invest.svg";
+import stash from "../Assets/navbar/stash.svg";
+import sprout from "../Assets/navbar/sprout.svg";
+import embed from "../Assets/navbar/embed.svg";
+import docs from "../Assets/navbar/docs.svg";
+import { ReactComponent as Expand } from "../Assets/navbar/expand.svg";
+import { ReactComponent as Expandbig } from "../Assets/navbar/expandbig.svg";
+
 //import Link from "react-router-dom";
 
 function Navbar() {
   const links = [
     {
       id: 0,
-      img: "",
+      img: plan,
       head: "Plan",
       text: "Access financial tools and guides",
     },
     {
       id: 1,
-      img: "",
+      img: save,
       head: "Save",
       text: "Earn better interests than your bank",
     },
     {
       id: 2,
-      img: "",
+      img: invest,
       head: "Invest",
       text: "Build a global portfolio in one app",
     },
     {
       id: 3,
-      img: "",
+      img: stash,
       head: "Get stash",
       text: "A digital wallet for everything",
     },
     {
       id: 4,
-      img: "",
+      img: sprout,
       head: "Sprout",
       text: "Put your business idle cash to work",
     },
     {
       id: 5,
-      img: "",
+      img: embed,
       head: "Embed",
       text: "Offer investment services in your app",
     },
     {
       id: 6,
-      img: "",
+      img: docs,
       head: "Docs",
       text: "Read how to integrate the Embed Api",
     },
@@ -51,7 +61,7 @@ function Navbar() {
     window.scrollTo(0, 0);
   }, []);
 
-  const [personal, setPersonal] = useState(true);
+  const [personal, setPersonal] = useState(false);
   const [business, setBusiness] = useState(false);
   const [dev, setDev] = useState(false);
 
@@ -70,23 +80,38 @@ function Navbar() {
     setBusiness(false);
     setPersonal(false);
   };
+  const [showMenu, setShowMenu] = useState(false);
   return (
-    <div class="navbar">
+    <div className="navbar">
       <div className="navbar__section">
-        <div className="logo">
-          <img src={logo} alt="cowrywise logo" />
+        <div className="mobile-nav">
+          <div className="logo">
+            <img src={logo} alt="cowrywise logo" />
+          </div>
+          <div
+            onClick={() => setShowMenu(!showMenu)}
+            className={`menu ${showMenu ? "cancelicon" : "showicon"}`}
+          >
+            <span></span>
+            <span></span>
+          </div>
         </div>
-        <div className="menu">
-          <span></span>
-          <span></span>
-        </div>
-        <div className="nav">
+        <div className={`nav ${showMenu ? "showing" : "hiding"}`}>
           <div className="personal link">
             <div className="personalhead link-head">
-              <span onClick={personalClicked} class={`${personal && "black"}`}>
+              <span
+                onClick={personalClicked}
+                className={`${personal && "black"}`}
+              >
                 Personal
               </span>
-              <span></span>
+              <span className="dropicon">
+                <Expand className={`desktop ${personal ? "less" : "more"}`} />
+                <Expandbig
+                  className={`mobile ${personal ? "less" : "more"}`}
+                  fill="white"
+                />
+              </span>
             </div>
             <div
               className={`link__section ${
@@ -123,10 +148,19 @@ function Navbar() {
           </div>
           <div className="business link">
             <div className="businesshead link-head">
-              <span onClick={businessClicked} class={`${business && "black"}`}>
+              <span
+                onClick={businessClicked}
+                className={`${business && "black"}`}
+              >
                 Business
               </span>
-              <span></span>
+              <span className="dropicon">
+                <Expand className={`desktop ${business ? "less" : "more"}`} />
+                <Expandbig
+                  className={`mobile ${business ? "less" : "more"}`}
+                  fill="white"
+                />
+              </span>
             </div>
             <div
               className={`link__section ${
@@ -152,10 +186,16 @@ function Navbar() {
           </div>
           <div className="developer link">
             <div className="developerhead link-head">
-              <span onClick={devClicked} class={`${dev && "black"}`}>
+              <span onClick={devClicked} className={`${dev && "black"}`}>
                 Developer
               </span>
-              <span></span>
+              <span className="dropicon">
+                <Expand className={`desktop ${dev ? "less" : "more"}`} />
+                <Expandbig
+                  className={`mobile ${dev ? "less" : "more"}`}
+                  fill="white"
+                />
+              </span>
             </div>
             <div
               className={`link__section ${dev ? "showsection" : "hidesection"}`}
@@ -183,12 +223,20 @@ function Navbar() {
               </div>
             </div>
           </div>
-          <div className="link">
+          <div className="link desktop">
             <div className="link-head">Learn</div>
           </div>
-          <div className="redirects">
+          <div className="redirects desktop">
             <div className="login">Log In</div>
             <div className="btn signup">Sign Up For Free</div>
+          </div>
+          <div className="mobile otherlinks">
+            <div>Sign Up</div>
+            <div>Log In </div>
+            <div>About</div>
+            <div>FAQs</div>
+            <div>Security</div>
+            <div>Learn</div>
           </div>
         </div>
       </div>

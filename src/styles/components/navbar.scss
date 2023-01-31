@@ -1,5 +1,8 @@
 .navbar{
     padding: 2.4rem 2.8rem;
+    .mobile{
+        display: none;
+    }
     &__section{
         display: flex;
         align-items: center;
@@ -9,26 +12,58 @@
             align-items: center;
             .link{
                 position: relative;
-                margin-left: 6rem;
+                margin-left: 4rem;
                 font-size: 1.6rem;
                 font-weight: Bold;
                 &-head{
                     color: $color-neutral;
                     transition: all 300ms ease-in-out;
                     cursor: pointer;
+                    display:flex;
+                    align-items: center;
+                    span{
+                        display: block;
+                    }
                     .black{
                         color: black;
                         transition: all 300ms ease-in-out;
+                        font-weight: 900;
                     }
                     &:hover{
                         color: black;
+                        .dropicon{
+                            .more{
+                                fill: black;
+                            }
+                        }
+                    }
+                    .dropicon{
+                        margin-top: .8rem;
+                        transition: all 300ms ease;
+                        .less{
+                            transform: rotate(180deg);
+                            transition: all 300ms ease-in-out;
+                            fill: black;
+                        }
+                        .more{
+                            fill: $color-neutral;
+                            transition: all 300ms ease-in-out;
+                        }
                     }
                 }
                 &__section{
                     display: flex;
-                    width: 800%;
+                    max-width: 1400%;
+                    min-width: 400%;
+                    width: max-content;
                     overflow: visible;
                     position: absolute;
+                    background-color: white;
+                    padding: 1.4rem 6rem 2rem 1rem;
+                    border-radius: 1.2rem;
+                    border: 1px solid rgba(8,37,82,.07);
+                    box-shadow: 0 10px 16px 0 rgba(8, 37, 82, 0.3);
+                    top: 5rem;
                     &.hidesection{
                         opacity: 0;
                         width: 0;
@@ -36,6 +71,64 @@
                     }
                     &.showsection{
                         opacity: 1;
+                    }
+                    &__left{
+                        border-right: 1px solid #efefef;
+                        padding-right: 3rem;
+                    }
+                    &__right{
+                        padding: 2.5rem 3rem 3rem 5.2rem;
+                        .right__texts__head{
+                            font-size: 1.6rem;
+                            margin-bottom: 2rem;
+                            color: $color-deep-blue;
+                            font-family: Medium;
+                        }
+                        .right__texts__body{
+                            margin-top: 1.5rem;
+                            font-size: 1.4rem;
+                            color: $color-neutral;
+                            transition: all 300ms ease-in-out;
+                            &:hover{
+                                color: $color-primary-blue;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                    .link-to-page{
+                        display: flex;
+                        align-items: center;
+                        width: max-content;
+                        margin: 3.5rem 2.4rem;
+                        img{
+                            width: 5rem;
+                            height: 5rem;
+                            border-radius: 50%;
+                        }
+                        .link__texts{
+                            padding: 0 2rem 0 3rem;
+                            &__head{
+                                font-size: 1.8rem;
+                                color: $color-deep-blue;
+                                font-weight:900;
+                                font-family: Medium;
+                            }
+                            &__body{
+                                font-size: 1.4rem;
+                                color: $color-neutral;
+                                margin-top: 1rem;
+                            }
+                            &:hover{
+                                transition: all 300ms ease-in-out;
+                                cursor: pointer;
+                                .link__texts__head{
+                                    color: $color-primary-blue;
+                                }
+                                .link__texts__body{
+                                    color: $color-primary-blue;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -52,5 +145,221 @@
             }
         }
         
+    }
+}
+@media screen and (min-width: 800px) and (max-width: 1280px){
+    .link__section{
+        margin-left: -5rem;
+        padding: 1.2rem 0 1rem 0 !important;
+       
+        &__left{
+            padding-right: 0 !important;
+        }
+        &__right{
+            padding: 2rem 1.2rem !important;
+        }
+        .link-to-page{
+            margin: 3rem 1rem;
+            .link__texts{
+                padding: 0 1rem 0 1rem !important;
+            }
+        }
+    }
+}
+@media screen and (min-width: 836px) and (max-width:1030px) {
+    .btn{
+        padding: 0 1.2rem;
+    }
+    .nav{
+        .link{
+            font-size: 1.45rem !important;
+            margin-left: 1.4rem !important;
+        }
+    }
+    .link__section{
+        margin-left: -10rem;
+        &__right{
+            padding: 1rem !important;
+        }
+        .link-to-page{
+            margin: 1.2rem 1rem !important;
+            img{
+                width: 4rem !important;
+                height: 4rem !important;
+            }
+            .link__texts{
+                &__head{
+                    font-size: 1.5rem !important;
+                    margin-bottom: 1rem;
+                }
+                &__body{
+                    font-size: 1.2rem !important;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 836px){
+    .navbar{
+        .mobile{
+            display: block;
+        }
+        &__section{
+            display: block;
+            .mobile-nav{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 0 0 ;
+                .menu{
+                    cursor: pointer;
+                    span{
+                        width: 2.7rem;
+                        height: 1.8px;
+                        background-color: black;
+                        display: block;
+                        transition: all 300ms ease-in-out;
+                        &:last-child{
+                            margin-top: .8rem;
+                        }
+                    }
+                    &.cancelicon{
+                        position: absolute;
+                        z-index: 9;
+                        right: 4rem;
+                        span{
+                            transform: rotate(45deg);
+                            background-color: white;
+                            &:last-child{
+                                transform: rotate(-45deg);
+                                margin-top: -1.2px;
+                            }
+                        }
+                    }
+                }
+            }
+            .nav{
+                &.showing{
+                    display: block;
+                    position: fixed;
+                    width: 100vw;
+                    height: 100%;
+                    min-height: 100vh;
+                    background-color: $color-primary-blue;
+                    padding-top: 6rem;
+                    top: 0;
+                    left: 0;
+                    z-index: 5;
+                }
+                &.hiding{
+                    display: none;
+                }
+                .link{
+                    font-size: 3rem;
+                    font-family: Bold;
+                    font-weight: 900;
+                    &-head{
+                        color: white;
+                        .black{
+                            color: white;
+                        }
+                        &:hover{
+                            color: white;
+                            .dropicon{
+                                .more{
+                                    fill: white;
+                                }
+                                .less{
+                                    fill: white;
+                                }
+                            }
+                        }
+                        .dropicon{
+                            .less{
+                                fill: white;
+                                
+                            }
+                            .more{
+                                fill: white;
+                            }
+                        }
+                    }
+                   
+                    &__section{
+                        position: static;
+                        width: 100%;
+                        min-width: 100%;
+                        max-width: 100%;
+                        height: 100%;
+                        background-color: transparent;
+                        box-shadow: none;
+                        border: none;
+                        display: block;
+                        padding:  0 !important;
+                        &__left{
+                            border-right: 0;
+                            border-bottom: 1px solid rgba(255,255,255,0.1);
+                            padding-right: 0;
+                        }
+                        &__right{
+                            padding: 2rem 1rem 2rem 0 !important;
+                            .right__texts__head{
+                                color:white;
+                            }
+                            .right__texts__body{
+                                color: rgba(255,255,255,0.6);
+                                transition: all 300ms ease-in-out;
+                                &:hover{
+                                    color: rgba(255,255,255,0.6);
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        .link-to-page{
+                            margin: 3.5rem 2rem 2rem 0;
+                            width: fit-content;
+                            img{
+                                width: 3.5rem;
+                                height: 3.5rem;
+                            }
+                            .link__texts{
+                                padding: 0 2rem 0 1.5rem;
+                                &__head{
+                                    color: white;
+                                }
+                                &__body{
+                                    color: rgba(255,255,255,0.6);
+                                    font-family: Light;
+                                }
+                                &:hover{
+                                    .link__texts__head{
+                                        color: white;
+                                    } .link__texts__body{
+                                        color: rgba(255,255,255,0.6);
+                                    }
+                                  
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .desktop{
+        display: none;
+    }
+    .redirects{
+        display: none !important;
+    }
+    .otherlinks{
+        font-size: 2rem;
+        color: rgba(255,255,255,0.6);
+        font-weight: 600;
+        div{
+            padding: 2rem 2rem 1rem 4rem;
+            font-family: Medium;
+        }
     }
 }
