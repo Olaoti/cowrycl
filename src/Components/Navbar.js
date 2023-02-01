@@ -98,13 +98,8 @@ function Navbar() {
         </div>
         <div className={`nav ${showMenu ? "showing" : "hiding"}`}>
           <div className="personal link">
-            <div className="personalhead link-head">
-              <span
-                onClick={personalClicked}
-                className={`${personal && "black"}`}
-              >
-                Personal
-              </span>
+            <div className="personalhead link-head" onClick={personalClicked}>
+              <span className={`${personal && "black"}`}>Personal</span>
               <span className="dropicon">
                 <Expand className={`desktop ${personal ? "less" : "more"}`} />
                 <Expandbig
@@ -147,13 +142,8 @@ function Navbar() {
             </div>
           </div>
           <div className="business link">
-            <div className="businesshead link-head">
-              <span
-                onClick={businessClicked}
-                className={`${business && "black"}`}
-              >
-                Business
-              </span>
+            <div className="businesshead link-head" onClick={businessClicked}>
+              <span className={`${business && "black"}`}>Business</span>
               <span className="dropicon">
                 <Expand className={`desktop ${business ? "less" : "more"}`} />
                 <Expandbig
@@ -185,10 +175,8 @@ function Navbar() {
             </div>
           </div>
           <div className="developer link">
-            <div className="developerhead link-head">
-              <span onClick={devClicked} className={`${dev && "black"}`}>
-                Developer
-              </span>
+            <div className="developerhead link-head" onClick={devClicked}>
+              <span className={`${dev && "black"}`}>Developer</span>
               <span className="dropicon">
                 <Expand className={`desktop ${dev ? "less" : "more"}`} />
                 <Expandbig
@@ -230,7 +218,11 @@ function Navbar() {
             <div className="login">Log In</div>
             <div className="btn signup">Sign Up For Free</div>
           </div>
-          <div className="mobile otherlinks">
+          <div
+            className={`mobile otherlinks ${
+              personal || business || dev ? "noshow" : ""
+            }`}
+          >
             <div>Sign Up</div>
             <div>Log In </div>
             <div>About</div>
