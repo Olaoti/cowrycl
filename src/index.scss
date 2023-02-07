@@ -18,13 +18,13 @@ html{
   font-size: 62.5%;
 }
 body{
-  font-family: Light;
-  letter-spacing: .4px;
+  font-family: Medium;
+
 }
 .btn{
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   background-color: $color-primary-blue;
-  padding: .2rem 2rem;
+  padding: .5rem 2.2rem;
   letter-spacing: .6px;
   line-height: 4rem;
   color: #fff;
@@ -48,4 +48,9 @@ body{
 
 
 /*Components styles*/
-@import "./styles/components/navbar.scss"
+@import "./styles/components/navbar.scss";
+@import "./styles/components/header.scss";
+
+/*Pages styles*/
+
+@import "./styles/pages/home.scss";

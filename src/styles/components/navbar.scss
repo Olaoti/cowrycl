@@ -1,5 +1,6 @@
 .navbar{
-    padding: 2.4rem 9rem;
+    padding: 2.5rem 2.8rem;
+  letter-spacing: .4px;
     .mobile{
         display: none;
     }
@@ -13,7 +14,7 @@
             .link{
                 position: relative;
                 margin-left: 4rem;
-                font-size: 1.5rem;
+                font-size: 1.6rem;
                 font-weight: Bold;
                 &-head{
                     color: $color-neutral;

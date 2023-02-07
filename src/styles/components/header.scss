@@ -1,0 +1,165 @@
+.header{
+    margin-top: 1rem;
+    &__section{
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        align-items: center;
+        &__personas{
+            position: relative;
+            padding-bottom: 10rem;
+            .background{
+                height: 100%;
+                position: absolute;
+                width: 26.5vw;
+                z-index: 0;
+                &.blue{
+                    background-color: rgb(223, 250, 255);
+                }
+                &.green{
+                    background-color: rgb(231, 255, 231);
+                }
+                &.pink{
+                    background-color: rgb(255, 236, 219);
+                }
+            }
+            &__image{
+                position: relative;
+                padding: 6rem 17% 5rem 7.5%;
+                z-index: 3;
+                height: 95vh;
+                width: 100%;
+                object-fit: cover;
+                .play__section{
+                    position: absolute;
+                    top: 10rem;
+                    right: 27%;
+                    z-index: 6;
+                    svg{
+                        width: 3rem;
+                        height: 3rem;
+                    }
+                }
+                img{
+                    z-index: 5;
+                    object-fit: cover;
+                    height: 95vh;
+                }
+                div{
+                    z-index: 5;
+                    .video{
+                        height: 95vh;
+                        max-height: 95vh;
+                        width: 100%;
+                        object-fit: fill;
+                        overflow: hidden;
+                        video{
+                            height: 100%;
+                            width: 100%;
+                            transform: scale(1.5);
+                            margin-top: -10rem;
+                        }
+                    }   
+                }
+                 
+            }
+            &__description{
+                width: 47%;
+                position: absolute;
+                z-index: 4;
+                bottom: 9rem;
+                right: 3rem;
+                background-color: white;
+                padding: 3rem 3rem ;
+                margin-bottom: 2rem;
+                .texts{
+                    color: $color-neutral;
+                    letter-spacing: .2px;
+                    line-height: 2rem;
+                    font-size: 1.43rem;
+                    font-weight: 600;
+                    font-family: Light;
+                }
+                .persona_info{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 3rem;
+                    .name{
+                        color: $color-deep-blue;
+                        font-size: 1.4rem;
+                    }
+                    .handle{
+                        color: $color-primary-blue;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+        &__info{
+            width: 100%;
+            padding-left: 8%;
+            &__head{
+                font-size: 10rem;
+                color: $color-deep-blue;
+                font-weight: 700;
+                letter-spacing: -4px;
+                margin-top: -6rem;
+            }
+            &__text{
+                font-size: 4.8rem;
+                color: $color-deep-blue;
+                font-weight: 700;
+                font-family: Light;
+                margin-top: 2rem;
+                letter-spacing: -1px;
+            }
+            &__form{
+                height: 100%;
+                form{
+                display: flex;
+                height: 100%;
+                padding-top: 4.5rem;
+                width: 100%;
+                    input{
+                        height: auto;
+                        width: 50%;
+                        margin-right: 1rem;
+                        padding-left: 1.2rem;
+                        border: 1px solid #ddd;
+                        outline: none;
+                        border-radius: .8rem;
+                        &:focus{
+                            border:1px solid $color-primary-blue;
+                            outline: $color-primary-blue;
+                        }
+                    }
+            }
+               
+            }
+        }
+    }
+    .select_info{
+        display: flex;
+        width: fit-content;
+        z-index: 5;
+        position: relative;
+        margin-left: 4vw;
+        margin-top: -11rem;
+        div{
+            margin-left: 1rem;
+            img{
+                width: 6rem;
+                height: 6rem;
+                object-fit: cover;
+                &.darken{
+                    filter: grayscale(100%) contrast(1.2);
+                }
+                &:hover{
+                    filter:grayscale(100%) contrast(1.7) blur(.5px);
+                    cursor: pointer;
+                    transition: all 300ms ease-in-out;
+                }
+            }
+        }
+    }
+}
