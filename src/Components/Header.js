@@ -8,6 +8,9 @@ import mayokunvid from "../Assets/header/videos/mayokun.mp4";
 import { ReactComponent as Play } from "../Assets/header/play.svg";
 import { ReactComponent as Pause } from "../Assets/header/pause.svg";
 
+import { ReactComponent as Playstore } from "../Assets/header/playstore.svg";
+import { ReactComponent as Appstore } from "../Assets/header/appstore.svg";
+
 function Header() {
   const [number, setNumber] = useState(0);
   const headerInfo = [
@@ -53,7 +56,7 @@ function Header() {
     if (HeaderInfo[number]?.playing && HeaderInfo[number]?.nowplaying) {
       videoRef.current.play();
     }
-  }, [number]);
+  }, [HeaderInfo, number]);
   const playClicked = () => {
     if (!HeaderInfo[number]?.playing) {
       const newheader = { ...HeaderInfo };
@@ -96,7 +99,7 @@ function Header() {
                     loop
                     autoPlay
                     ref={videoRef}
-                    muted='muted'
+                    muted="muted"
                   ></video>
                 </div>
               ) : (
@@ -123,11 +126,19 @@ function Header() {
             Invest wisely. Manage risk. <br />
             Grow wealth.
           </div>
-          <div className="header__section__info__form">
+          <div className="header__section__info__form desktopheader">
             <form>
               <input type="email" placeholder="Your email ..." required />
               <button className="submit btn">Start Investing</button>
             </form>
+          </div>
+          <div className="mobileheader download-section">
+            <div className="playstore">
+              <Playstore />
+            </div>
+            <div className="appstore">
+              <Appstore />
+            </div>
           </div>
         </div>
       </div>

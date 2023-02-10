@@ -1,5 +1,8 @@
 .header{
     margin-top: 1rem;
+    .mobileheader{
+        display: none;
+    }
     &__section{
         position: relative;
         display: grid;
@@ -27,7 +30,7 @@
             }
             &__image{
                 position: relative;
-                padding: 6rem 16% 5rem 5vw;
+                padding: 6rem 16% 5rem 4.7vw;
                 z-index: 3;
                 width: 100%;
                 object-fit: cover;
@@ -79,7 +82,7 @@
                     letter-spacing: .2px;
                     line-height: 1.84rem;
                     font-size: 1.4rem;
-                    font-weight: 400;
+                    font-weight: 600;
                     font-family: Light;
                 }
                 .persona_info{
@@ -99,13 +102,14 @@
         }
         &__info{
             width: 100%;
-            padding-left: 4%;
+            padding-left: 6%;
             &__head{
                 font-size: 9.6rem;
+                line-height: 11rem;
                 color: $color-deep-blue;
                 font-weight: 700;
-                letter-spacing: -4px;
-                margin-top: -5rem;
+                letter-spacing: -5.4px;
+                margin-top: -10rem;
             }
             &__text{
                 font-size: 4.8rem;
@@ -196,6 +200,7 @@
 }
 @media screen and (max-width:805px) {
     .header{
+        margin-top: 0;
         &__section{
             grid-template-columns: 1fr;
             &__personas{
@@ -217,7 +222,11 @@
                 }
             }
             &__info{
-                padding: 5rem 3.4rem;
+                padding: 0rem 3.4rem;
+                &__head{
+                    margin-top: 0;
+                    line-height: 9rem;
+                }
                 &__form{
                     form{
                         padding-top: 0;
@@ -229,15 +238,42 @@
 }
 @media screen and (max-width: 550px) {
     .header{
+        .desktopheader{
+            display: none;
+        }
+        .mobileheader{
+            display: flex;
+            height: auto;
+            width: 100%;
+            margin-top: 2.4rem;
+            div{
+                object-fit: cover;
+                width: 15rem;
+                height: 5rem;
+                svg{
+                    width: 14rem;
+                    height: 4.5rem;
+                }
+            }
+            .appstore{
+                margin-top: .4rem;
+                margin-left: .2rem;
+                svg{
+                    border-radius: 6px;
+                }
+            }
+        }
         &__section{
             &__info{
-                padding: 4.8rem 2.1rem;
+                padding: 2rem 2.1rem .7rem;
                 &__head{
                     font-size: 5.2rem;
                     line-height: 6rem;
+                    font-weight: 400;
                 }
                 &__text{
                     font-size: 2.5rem;
+                    font-weight: 400;
                 }
             }
             &__personas{
@@ -260,7 +296,7 @@
                     width: 75%;
                     padding: 1.4rem 1.6rem;
                     left: 1.8rem;
-                    margin-bottom: 0;
+                    margin-bottom: -3.6rem;
                 }
             }
         }
