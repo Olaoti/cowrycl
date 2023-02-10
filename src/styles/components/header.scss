@@ -5,6 +5,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr ;
         align-items: center;
+        padding: 0 3vw;
         &__personas{
             position: relative;
             padding-bottom: 10rem;
@@ -13,6 +14,7 @@
                 position: absolute;
                 width: 26.5vw;
                 z-index: 0;
+                opacity: 0.5;
                 &.blue{
                     background-color: rgb(223, 250, 255);
                 }
@@ -25,15 +27,14 @@
             }
             &__image{
                 position: relative;
-                padding: 6rem 17% 5rem 7.5%;
+                padding: 6rem 16% 5rem 5vw;
                 z-index: 3;
-                height: 95vh;
                 width: 100%;
                 object-fit: cover;
                 .play__section{
                     position: absolute;
-                    top: 10rem;
-                    right: 27%;
+                    top: 7rem;
+                    right: 19%;
                     z-index: 6;
                     svg{
                         width: 3rem;
@@ -43,15 +44,16 @@
                 img{
                     z-index: 5;
                     object-fit: cover;
-                    height: 95vh;
+                    height: 85vh;
+                    width: 100%;
                 }
                 div{
                     z-index: 5;
                     .video{
-                        height: 95vh;
-                        max-height: 95vh;
+                        height: 85vh;
+                        max-height: 85vh;
                         width: 100%;
-                        object-fit: fill;
+                        object-fit: cover;
                         overflow: hidden;
                         video{
                             height: 100%;
@@ -67,17 +69,17 @@
                 width: 47%;
                 position: absolute;
                 z-index: 4;
-                bottom: 9rem;
+                bottom: 8rem;
                 right: 3rem;
                 background-color: white;
-                padding: 3rem 3rem ;
+                padding: 2.4rem;
                 margin-bottom: 2rem;
                 .texts{
                     color: $color-neutral;
                     letter-spacing: .2px;
-                    line-height: 2rem;
-                    font-size: 1.43rem;
-                    font-weight: 600;
+                    line-height: 1.84rem;
+                    font-size: 1.4rem;
+                    font-weight: 400;
                     font-family: Light;
                 }
                 .persona_info{
@@ -97,13 +99,13 @@
         }
         &__info{
             width: 100%;
-            padding-left: 8%;
+            padding-left: 4%;
             &__head{
-                font-size: 10rem;
+                font-size: 9.6rem;
                 color: $color-deep-blue;
                 font-weight: 700;
                 letter-spacing: -4px;
-                margin-top: -6rem;
+                margin-top: -5rem;
             }
             &__text{
                 font-size: 4.8rem;
@@ -143,13 +145,16 @@
         width: fit-content;
         z-index: 5;
         position: relative;
-        margin-left: 4vw;
+        margin-left: 8vw;
         margin-top: -11rem;
         div{
-            margin-left: 1rem;
+            margin-right: 1rem;
+            height: 4.5rem;
+            display: flex;
+            overflow: hidden;
             img{
-                width: 6rem;
-                height: 6rem;
+                width: 5.5rem;
+                height: 5.5rem;
                 object-fit: cover;
                 &.darken{
                     filter: grayscale(100%) contrast(1.2);
@@ -158,6 +163,113 @@
                     filter:grayscale(100%) contrast(1.7) blur(.5px);
                     cursor: pointer;
                     transition: all 300ms ease-in-out;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1100px) {
+    .header{
+        &__section{
+            padding: 0;
+            &__personas{
+                &__image{
+                    padding: 6rem 5% 5rem 2vw;
+                    }
+            }
+            &__info{
+                padding-left: 2%;
+                &__head{
+                    font-size: 7rem;
+                    margin-top: -3.5rem;
+                }
+                &__text{
+                    font-size: 3.2rem;
+                    margin-top: 1.6rem;
+                }
+                &__form{
+                    padding-top: 3.8rem;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:805px) {
+    .header{
+        &__section{
+            grid-template-columns: 1fr;
+            &__personas{
+                order: 1;
+                .background{
+                    width: 70vw;
+                }
+                &__image{
+                    padding:2rem 4rem;
+                    .play__section{
+                        top: 4rem;
+                        right: 6rem;
+                    }
+                }
+                &__description{
+                    width: 50%;
+                    left: 4rem;
+                    bottom: 16rem;
+                }
+            }
+            &__info{
+                padding: 5rem 3.4rem;
+                &__form{
+                    form{
+                        padding-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 550px) {
+    .header{
+        &__section{
+            &__info{
+                padding: 4.8rem 2.1rem;
+                &__head{
+                    font-size: 5.2rem;
+                    line-height: 6rem;
+                }
+                &__text{
+                    font-size: 2.5rem;
+                }
+            }
+            &__personas{
+                &__image{
+                    img{
+                        height: 68vh;
+                    }
+                    div{
+                        .video{
+                            height: 68vh;
+                            max-height: 68vh;
+                        }
+                    }
+                    padding: 2.1rem 1.8rem;
+                    .play__section{
+                        right: 4rem;
+                    }
+                }
+                &__description{
+                    width: 75%;
+                    padding: 1.4rem 1.6rem;
+                    left: 1.8rem;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .select_info{
+            div{
+                height: 4rem;
+                img{
+                    width: 5rem;
+                    height: 5rem;
                 }
             }
         }

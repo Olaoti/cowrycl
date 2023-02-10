@@ -1,6 +1,7 @@
 .navbar{
-    padding: 2.5rem 2.8rem;
+    padding: 2.2rem 8.6rem 2rem;
   letter-spacing: .4px;
+  font-family: Light;
     .mobile{
         display: none;
     }
@@ -13,8 +14,8 @@
             align-items: center;
             .link{
                 position: relative;
-                margin-left: 4rem;
-                font-size: 1.6rem;
+                margin-left: 3rem;
+                font-size: 1.55rem;
                 font-weight: Bold;
                 &-head{
                     color: $color-neutral;
@@ -172,6 +173,9 @@
     .btn{
         padding: 0 1.2rem;
     }
+    .navbar{
+        padding: 2rem;
+    }
     .nav{
         .link{
             font-size: 1.45rem !important;
@@ -203,7 +207,7 @@
 }
 @media screen and (max-width: 836px){
     .navbar{
-        padding: 2.4rem 3rem;
+        padding: 2.4rem;
         .mobile{
             display: block;
         }
