@@ -1,5 +1,5 @@
 .richstep{
-    padding: 0 0 4rem 5.7vw;
+    padding: 10rem 0 4rem 5.7vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
@@ -108,7 +108,6 @@
 @media screen and (max-width:940px) {
     .richstep{
         grid-template-columns: 1fr;
-        padding-top: 10rem;
         .bighead{
             font-size: 7.8rem;
             line-height: 9rem
@@ -128,7 +127,7 @@
 }
 @media screen and (max-width:600px) {
     .richstep{
-        padding: 10rem 0 3rem 4vw;
+        padding: 10rem 0 2rem 4vw;
         &__description{
             .bighead{
                 font-size: 4.4rem;
@@ -142,18 +141,24 @@
             &__texts{
                 font-size: 2.5rem;
                 padding-right: 0;
-                font-weight: 600;
+                font-family: Medium;
+                font-weight: 500;
+            }
+            .btn{
+                font-family: Medium;
+                font-weight: 500;
             }
         }
         &__steps{
-            height: 50vh;
+            height: 43vh;
             width: 100%;
-            padding: 0 1rem;
+            padding-right: 4vw;
+            margin: 0;
             svg{
-                height: 50vh;
+                height: 43vh;
                 width: 100%;
-                object-fit: contain;
-                margin-right: 0;
+                object-fit: cover;
+                margin: 0;
             }
         }
     }
