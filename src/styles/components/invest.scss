@@ -85,9 +85,10 @@
     .invest{
        &__head{
         font-size: 4.65rem;
-        line-height: 5.2rem;
+        line-height: 5.9rem;
         margin-right: 5vw;
         padding:0 0 0 3.2rem;
+        font-weight: 600;
        } 
        &__section{
         &__quote{
@@ -95,7 +96,8 @@
             min-width: 28rem;
             font-size: 2.9rem;
             padding: 3.5rem 2.8rem 2rem;
-            animation: quoteanimation 26s linear infinite;
+            animation: quoteanimation 16s linear infinite;
+            letter-spacing: -.06rem;
             span{
                 font-size: 5rem;
                 line-height: 3.5rem;
