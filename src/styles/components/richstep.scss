@@ -26,7 +26,6 @@
     &__steps{
         width: 100%;
         padding-left: 3vw;
-        height: 110vh;
         position: relative;
         .stepsvg{
             overflow:hidden ;
@@ -113,7 +112,6 @@
             line-height: 9rem
         }
         &__steps{
-            height: 80vh;
             .stepsvg{
                 svg{
                     height: 80vh;
@@ -150,7 +148,6 @@
             }
         }
         &__steps{
-            height: 43vh;
             width: 100%;
             padding-right: 4vw;
             margin: 0;
