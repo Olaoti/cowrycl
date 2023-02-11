@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logo from "../Assets/logo.svg";
 import plan from "../Assets/navbar/plan.svg";
 import save from "../Assets/navbar/save.svg";
 import invest from "../Assets/navbar/invest.svg";
@@ -7,12 +6,27 @@ import stash from "../Assets/navbar/stash.svg";
 import sprout from "../Assets/navbar/sprout.svg";
 import embed from "../Assets/navbar/embed.svg";
 import docs from "../Assets/navbar/docs.svg";
+import { ReactComponent as Logo } from "../Assets/logo.svg";
 import { ReactComponent as Expand } from "../Assets/navbar/expand.svg";
 import { ReactComponent as Expandbig } from "../Assets/navbar/expandbig.svg";
 
 //import Link from "react-router-dom";
 
 function Navbar() {
+  const [show, handleShow] = useState(false);
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      handleShow(true);
+    } else {
+      handleShow(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const links = [
     {
       id: 0,
@@ -82,11 +96,11 @@ function Navbar() {
   };
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <div className="navbar">
+    <div className={`navbar ${show && "showing"}`}>
       <div className="navbar__section">
         <div className="mobile-nav">
           <div className="logo">
-            <img src={logo} alt="cowrywise logo" />
+            <Logo fill="#0067F5" />
           </div>
           <div
             onClick={() => setShowMenu(!showMenu)}
