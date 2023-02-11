@@ -45,11 +45,20 @@ body{
   box-shadow: 4px 8px 8px 2px #0066f52e;
 
 }
+.bighead{
+  font-size: 9rem;
+  line-height: 11rem;
+  color: $color-deep-blue;
+  font-weight: 700;
+  letter-spacing: -5.4px;
+  margin-top: -10rem;
+}
 
 
 /*Components styles*/
 @import "./styles/components/navbar.scss";
 @import "./styles/components/header.scss";
+@import "./styles/components/richstep.scss";
 
 /*Pages styles*/
 

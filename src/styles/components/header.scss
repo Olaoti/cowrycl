@@ -103,14 +103,6 @@
         &__info{
             width: 100%;
             padding-left: 6%;
-            &__head{
-                font-size: 9.6rem;
-                line-height: 11rem;
-                color: $color-deep-blue;
-                font-weight: 700;
-                letter-spacing: -5.4px;
-                margin-top: -10rem;
-            }
             &__text{
                 font-size: 4.8rem;
                 color: $color-deep-blue;
@@ -151,6 +143,7 @@
         position: relative;
         margin-left: 8vw;
         margin-top: -11rem;
+        margin-bottom: 8rem;
         div{
             margin-right: 1rem;
             height: 4.5rem;
@@ -205,6 +198,7 @@
             grid-template-columns: 1fr;
             &__personas{
                 order: 1;
+            padding-bottom: 7rem;
                 .background{
                     width: 70vw;
                 }
@@ -233,6 +227,9 @@
                     }
                 }
             }
+        }
+        .select_info{
+            margin-top: -7rem;
         }
     }
 }
@@ -269,11 +266,11 @@
                 &__head{
                     font-size: 5.2rem;
                     line-height: 6rem;
-                    font-weight: 400;
+                    font-weight: 800;
                 }
                 &__text{
                     font-size: 2.5rem;
-                    font-weight: 400;
+                    font-weight: 800;
                 }
             }
             &__personas{

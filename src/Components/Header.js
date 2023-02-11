@@ -119,7 +119,7 @@ function Header() {
           </div>
         </div>
         <div className="header__section__info">
-          <div className="header__section__info__head">
+          <div className="header__section__info__head bighead">
             Put your <br /> money to work
           </div>
           <div className="header__section__info__text">
