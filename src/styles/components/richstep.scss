@@ -7,6 +7,7 @@
     &__description{
         width: 100%;
         .bighead{
+            margin-top: -15rem;
             span.little{
                 font-style: italic;
                 font-family: Light;
@@ -97,8 +98,8 @@
                 left: 3vw;
             }
             .step3{
-                left: 18vw;
-                top: 10vh;
+                left: 20vw;
+                top: 12vh;
             }
         }
     }
@@ -109,7 +110,8 @@
         grid-template-columns: 1fr;
         .bighead{
             font-size: 7.8rem;
-            line-height: 9rem
+            line-height: 9rem;
+            margin-top: -10rem;
         }
         &__steps{
             .stepsvg{

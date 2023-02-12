@@ -1,0 +1,80 @@
+.appinfo{
+    padding:12rem 0 8rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: auto;
+    &__screenshot{
+        width: 100%;
+        img{
+            width: 100%;
+            object-fit: contain;
+            max-height: 100vh;
+        }
+    }
+    &__description{
+        width: 100%;
+        padding:0 15%;
+        height: fit-content;
+        &__head{
+            letter-spacing: -1px;
+            line-height: 1.25;
+            margin-bottom: 0.7em;
+            font-weight: 700;
+            font-size: 4.86rem;
+            color: $color-deep-blue;
+            margin-bottom: 6.5rem;
+        }
+        &__steps{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-right: 5vw;
+            .appinfo-step{
+                display: flex;
+                height: 100%;
+                width: 100%;
+                .stepcount{
+                    display: flex;
+                    flex-direction: column;
+                    height: auto;
+                    align-items: center;
+                    padding-right: 6rem;
+                    &__number{
+                        font-size: 1.8rem;
+                        color: $color-primary-blue;
+                        text-rendering: geometricPrecision;
+                        padding: 2.5rem 0;
+                        font-weight: 900;
+                    }
+                    &__countline{
+                        width: 1px;
+                        height: 100%;
+                        display: grid;
+                        place-items: center;
+                        background-color: $color-primary-blue;
+                    }
+                }
+                .stepinfo{
+                    &__head{
+                        font-size: 2.3rem;
+                        line-height: 1;
+                        letter-spacing: -.2px;
+                        font-weight: 600;
+                        color: $color-deep-blue;
+                        padding-top: 2.5rem;
+                    }
+                    &__details{
+                        line-height: 1.7;
+                        padding: 1.5rem 0;
+                        font-weight: 600;
+                        font-size: 1.7rem;
+                        color: rgba(8, 37, 82, 0.8);
+                        font-family: Light;
+                        margin-bottom: 3.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
