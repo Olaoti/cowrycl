@@ -48,7 +48,7 @@
                         font-weight: 900;
                     }
                     &__countline{
-                        width: 1px;
+                        width: .8px;
                         height: 100%;
                         display: grid;
                         place-items: center;
@@ -74,6 +74,54 @@
                         margin-bottom: 3.5rem;
                     }
                 }
+            }
+        }
+    }
+}
+@media screen and (max-width:1050px){
+    .appinfo{
+        padding: 10rem 0 7rem 0;
+        &__description{
+            padding: 0 3rem;
+            &__head{
+                font-size: 3.8rem;
+            }
+            &__steps{
+                margin-right: 2rem;
+                .appinfo-step{
+                    .stepinfo{
+                        &__head{
+                            font-size: 2rem;
+                        }
+                        &__details{
+                            font-size: 1.45rem;
+                            margin-bottom: 2.8rem;
+                        }
+                    }
+                }   
+            }
+        }
+    }
+}
+@media screen and (max-width: 750px) {
+    .appinfo{
+        grid-template-columns: 1fr;
+        .signup{
+            width: 100%;
+            display: grid;
+            place-items: center;
+            padding-top: 2rem;
+        }
+        &__screenshot{
+           img{
+            max-height: 70vh;
+           }
+        }
+        &__description{
+            padding: 6rem 4rem 0;
+            &__head{
+                font-size: 3.2rem;
+                margin-bottom: 4rem;
             }
         }
     }

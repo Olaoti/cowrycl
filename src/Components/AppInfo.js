@@ -48,7 +48,9 @@ function AppInfo() {
             </div>
           </div>
         </div>
-        <button className="btn">Sign Up Now</button>
+        <div className="signup">
+          <button className="btn">Sign Up Now</button>
+        </div>
       </div>
     </div>
   );
