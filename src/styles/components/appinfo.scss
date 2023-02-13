@@ -1,5 +1,11 @@
 .appinfo{
-    padding:12rem 0 8rem 1rem;
+    background-image: url(../../Assets/app-background.svg);
+    background-repeat: no-repeat;
+    background-position: -120% -120px;
+    background-size: 77%;
+    padding-bottom: 120px;
+    padding:8rem 0 8rem 1rem;
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
@@ -80,7 +86,8 @@
 }
 @media screen and (max-width:1050px){
     .appinfo{
-        padding: 10rem 0 7rem 0;
+        padding: 7rem 0 7rem 0;
+        margin-top: 3rem;
         &__description{
             padding: 0 3rem;
             &__head{
@@ -118,10 +125,17 @@
            }
         }
         &__description{
-            padding: 6rem 4rem 0;
+            padding: 6rem 2.4rem 0;
             &__head{
                 font-size: 3.2rem;
                 margin-bottom: 4rem;
+            }
+            &__steps{
+                .appinfo-step{
+                    .stepcount{
+                        padding-right: 3.4rem;
+                    }
+                }
             }
         }
     }
