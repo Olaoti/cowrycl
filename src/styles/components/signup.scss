@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: auto;
-    margin: 0 10rem 4rem;
+    margin: 0 0 4rem;
     padding: 8rem 10rem;
     border-radius: 1.2rem;
     box-shadow: 0 59px 51px -34px rgba(0,103,245 , 0.03);
@@ -59,7 +59,7 @@
 }
 @media screen and (max-width:1000px) {
     .signup-section{
-        padding: 5rem 2rem;
+        padding: 5rem 0;
     }
 }
 @media screen and (max-width: 900px) {
@@ -93,9 +93,10 @@
 }
 @media screen and (max-width:500px) {
     .signup-section{
-    padding:3rem 2rem;
+    padding:3rem .5rem;
     &__info{
-        font-size: 2.8rem;
+        font-size: 2.9rem;
+        margin-left: 0;
     }
         form.signup-form{
             display: block;

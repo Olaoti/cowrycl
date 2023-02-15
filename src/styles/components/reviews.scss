@@ -1,5 +1,5 @@
 .reviews{
-    padding:8rem 9.8rem 2rem;
+    padding:8rem 0 2rem;
     &__reason{
         letter-spacing: 1px;
         font-size: 1.6rem;
@@ -101,7 +101,7 @@
 }
 @media screen and (max-width:1250px) {
     .reviews{
-        padding: 7rem 2rem 1rem;
+        padding: 7rem 0 1rem;
     }
 }
 @media screen and (max-width: 900px) {
@@ -123,7 +123,7 @@
 }
 @media screen and (max-width:650px) {
     .reviews{
-        padding: 6rem 2rem 0;
+        padding: 6rem 0 0;
         .questions-section{
             font-size: 3.8rem;
             font-weight: 900;
@@ -137,7 +137,7 @@
             margin: 6rem 0 8rem;
             display: block;
             .review-card{
-                padding: 4rem 3rem;
+                padding: 4rem;
                 &:first-child{
                     margin-bottom: 3rem;
                 }
@@ -152,7 +152,7 @@
                     font-size: 1.8rem;
                 }
                 &__info{
-                    font-size: 1.15rem;
+                    font-size: 1.25rem;
                 }
             }
         }
