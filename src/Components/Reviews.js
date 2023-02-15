@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import reviewimg from "../Assets/reviews.svg";
 import appstore from "../Assets/header/appstore.svg";
 import playstore from "../Assets/header/playstore.svg";
+import { gsap } from "gsap";
 
 function Reviews() {
   const questionsobj = [
@@ -49,19 +50,42 @@ function Reviews() {
       } else {
         setNumber(0);
       }
-    }, 3000);
+    }, 3500);
     return () => clearInterval(timer);
   }, [number, questionsobj.length]);
+
+  const questionRef = useRef(null);
+  const answerRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      questionRef.current,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.5 }
+    );
+    gsap.fromTo(
+      answerRef.current,
+      { opacity: 0, marginLeft: "1rem", y: 50 },
+      { opacity: 1, marginLeft: "2rem", x: 0, y: 0, duration: 0.5, delay: 0.5 }
+    );
+    gsap.fromTo(
+      sectionRef.current,
+      { opacity: 1, y: 0 },
+      { opacity: 0, y: -20, duration: 0.5, delay: 2.5 }
+    );
+  }, [number, questionRef, answerRef, sectionRef]);
+
   return (
     <div className="reviews">
       <div className="reviews__reason">WHY COWRYWISE ?</div>
-      <div className="questions-section">
-        <span className="questions-section__question">
+      <div className="questions-section" ref={sectionRef}>
+        <div className="questions-section__question" ref={questionRef}>
           {questionsobj[number].question}
-        </span>
-        <span className="questions-section__answer">
+        </div>
+        <div className="questions-section__answer" ref={answerRef}>
           {questionsobj[number].answer}
-        </span>
+        </div>
       </div>
       <div className="reviews__section">
         <div className="review-card">

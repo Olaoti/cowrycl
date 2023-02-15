@@ -11,6 +11,8 @@
         font-size: 6rem;
         font-weight: 900;
         color: $color-deep-blue;
+        display: flex;
+        align-items: center;        
         &__answer{
             margin-left: 2rem;
         }
@@ -128,8 +130,8 @@
             font-size: 3.8rem;
             font-weight: 900;
             letter-spacing: -1px;
+            display: block;
             &__answer{
-                display: block;
                 margin-left: 0;
             }
         }
