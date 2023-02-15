@@ -9,7 +9,7 @@ function Signup() {
       </div>
       <form className="signup-form">
         <div className="email-field">
-          <input type="email" placeholder="Your email..." />
+          <input type="email" placeholder="Your email..." required />
         </div>
         <button className="btn" type="submit">
           Sign Up For Free

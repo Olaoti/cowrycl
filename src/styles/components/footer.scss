@@ -120,6 +120,7 @@
 @media screen and (max-width:670px) {
     .address{
         .physical-address{
+            padding: 2rem 0 0;
             flex-direction: column-reverse;
             justify-content: flex-start;
             align-items: flex-start;
@@ -127,7 +128,7 @@
                 background-color: transparent;
                 box-shadow: none;
                 border: 0;
-                margin: 2rem 0 1rem;
+                margin: 1rem 0 1rem;
             }
         }
     }
