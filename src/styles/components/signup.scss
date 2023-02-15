@@ -1,0 +1,115 @@
+.signup-section{
+    background-color: $color-primary-blue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: auto;
+    margin: 0 10rem 4rem;
+    padding: 8rem 10rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 59px 51px -34px rgba(0,103,245 , 0.03);
+    align-items: center;
+    &__info{
+        line-height: 1.4;
+        color: #fff;
+        font-size: 3.8rem;
+        font-weight: 900;
+        margin-left: 2rem;
+    }
+    form.signup-form{
+        display: flex;
+        background-color: rgba(255,255,255,0.2);
+        width: 100%;
+        padding: .6rem;
+        justify-content: space-between;
+        border-radius: 6px;
+        height: fit-content;
+        align-items: center;
+        .email-field{
+            input{
+                background-color: transparent;
+                color: rgba(255,255,255,0.9);
+                font-size: 1.6rem;
+                padding-left: 2rem;
+                letter-spacing: 1px;
+                &::placeholder{
+                    color: rgba(255,255,255,0.9);
+                    font-size: 1.7rem;
+                }
+            }
+        }
+        button.btn{
+            background-color: #fff;
+            color: $color-deep-blue;
+            border-radius: .4rem;
+            font-weight: 700;
+            font-family: Medium;
+            padding: .4rem 2.8rem;
+            &:hover{
+                background-color: $color-deep-blue;
+                color: white;
+            }
+        }
+    }
+}
+@media screen and (max-width:1250px) {
+    .signup-section{
+        margin: 0 2rem 4rem;
+        padding: 7rem;
+    }
+}
+@media screen and (max-width:1000px) {
+    .signup-section{
+        padding: 5rem 2rem;
+    }
+}
+@media screen and (max-width: 900px) {
+    .signup-section{
+        &__info{
+            font-size: 3rem;
+            margin-left: 1.5rem;
+        }
+        form.signup-form{
+            .email-field{
+                input{
+                    width: 10rem;
+                    font-size: 1.5rem;
+                    padding-left: 1.2rem;
+                    &::placeholder{
+                        color: rgba(255,255,255,0.7);
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:700px) {
+    .signup-section{
+        display: block;
+        &__info{
+            padding-bottom: 2rem;
+        }
+    }
+}
+@media screen and (max-width:500px) {
+    .signup-section{
+    padding:3rem 2rem;
+    &__info{
+        font-size: 2.8rem;
+    }
+        form.signup-form{
+            display: block;
+            background-color: transparent;
+            .email-field{
+                width: 100%;
+                background-color: rgba(255,255,255,0.2);
+                margin-bottom: 2rem;
+                border-radius: .5rem;
+                input{
+                    padding: 2rem;
+                    width: 20rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,160 @@
+.reviews{
+    padding:8rem 9.8rem 2rem;
+    &__reason{
+        letter-spacing: 1px;
+        font-size: 1.6rem;
+        margin-bottom: 3rem;
+        color: $color-deep-blue;
+        font-weight: 900;
+    }
+    .questions-section{
+        font-size: 6rem;
+        font-weight: 900;
+        color: $color-deep-blue;
+        &__answer{
+            margin-left: 2rem;
+        }
+    }
+    &__section{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 4rem;
+        margin: 10rem 0;
+        gap: 4rem;
+        .review-card{
+            background-color: #fff;
+            padding: 3.2rem 3.5rem;
+            border: 1px solid rgba(8,37,82,.07);
+            box-shadow: 1px 12px 24px rgba(8,37, 82, 0.05);
+            width: 100%;
+            border-radius: 2rem;
+            min-height: 29rem;
+            &__top{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                img{
+                    width: 12rem;
+                }
+               .review-stars{
+                    display: flex;
+                    align-items: center;
+                    font-size: 1.9rem;
+                    bottom: 1px;
+                    color: $color-neutral;
+                    span{
+                        font-size: 3.8rem;
+                        font-weight: 600;
+                        color: $color-deep-blue;
+                    }
+                    img{
+                        margin-left: 2rem;
+                        height: fit-content;
+                    }
+                }
+            } 
+            .availability{
+                letter-spacing: -.4px;
+                line-height: 1.25;
+                margin-bottom: 0.7em;
+                font-weight: 700;
+                font-size: 2.1rem;
+                color: $color-deep-blue;
+                padding: 2rem 0 1rem;
+            }
+            &__info{
+                line-height: 1.7;
+                margin: 1.5rem 0;
+                font-weight: 200;
+                font-family: Light;
+                font-size: 1.3rem;
+                letter-spacing: -.2px;
+                color: $color-neutral;
+            }
+            .downloadbtn{
+                color: $color-primary-blue;
+                font-size: 1.25rem;
+                text-transform: uppercase;
+                letter-spacing: .7px;
+                font-weight: 600;
+                padding-top: 2.5rem;
+                cursor: pointer;
+                span{
+                    opacity: 1;
+                transition: all 300ms ease-in-out;
+                    svg{
+                        margin-bottom: -0.2rem;
+                        height: 1.2rem;
+                        object-fit: contain;
+                    }
+                }
+                &:hover{
+                    span{
+                        margin-left: .5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:1250px) {
+    .reviews{
+        padding: 7rem 2rem 1rem;
+    }
+}
+@media screen and (max-width: 900px) {
+    .reviews{
+        .questions-section{
+            font-size: 4rem;
+        }
+        &__section{
+            .review-card{
+                padding: 2rem 1rem;
+                &__top{
+                    .review-stars{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:650px) {
+    .reviews{
+        padding: 6rem 2rem 0;
+        .questions-section{
+            font-size: 3.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            &__answer{
+                display: block;
+                margin-left: 0;
+            }
+        }
+        &__section{
+            margin: 6rem 0 8rem;
+            display: block;
+            .review-card{
+                padding: 4rem 3rem;
+                &:first-child{
+                    margin-bottom: 3rem;
+                }
+                &__top{
+                    display: block;
+                    .review-stars{
+                        display: flex;
+                        margin-bottom: 1.6rem;
+                    }
+                }
+                .availability{
+                    font-size: 1.8rem;
+                }
+                &__info{
+                    font-size: 1.15rem;
+                }
+            }
+        }
+    }
+}

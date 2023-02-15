@@ -21,6 +21,14 @@ body{
   font-family: Medium;
 
 }
+input{
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  &::placeholder{
+    font-size: inherit;
+  }
+}
 .btn{
   font-size: 1.44rem;
   background-color: $color-primary-blue;
@@ -29,6 +37,8 @@ body{
   line-height: 4rem;
   color: #fff;
   width: fit-content;
+  height: min-content;
+  max-height: min-content;
   cursor: pointer;
   font-weight: 900;
   border-radius: .5rem;
@@ -66,6 +76,8 @@ body{
 @import "./styles/components/invest.scss";
 @import "./styles/components/appinfo.scss";
 @import "./styles/components/security.scss";
+@import "./styles/components/reviews.scss";
+@import "./styles/components/signup.scss";
 
 /*Pages styles*/
 

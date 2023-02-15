@@ -5,6 +5,8 @@ import Richstep from "../Components/Richstep.js";
 import Invest from "../Components/Invest.js";
 import AppInfo from "../Components/AppInfo.js";
 import Security from "../Components/Security.js";
+import Reviews from "../Components/Reviews.js";
+import Signup from "../Components/Signup.js";
 
 function Home() {
   return (
@@ -15,6 +17,8 @@ function Home() {
       <Invest />
       <AppInfo />
       <Security />
+      <Reviews />
+      <Signup />
     </div>
   );
 }
