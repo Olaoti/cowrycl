@@ -66,8 +66,8 @@ function Reviews() {
     );
     gsap.fromTo(
       answerRef.current,
-      { opacity: 0, marginLeft: "1rem", y: 50 },
-      { opacity: 1, marginLeft: "2rem", x: 0, y: 0, duration: 0.5, delay: 0.5 }
+      { opacity: 0, x: 10, y: 50 },
+      { opacity: 1, x: 0, y: 0, duration: 0.5, delay: 0.5 }
     );
     gsap.fromTo(
       sectionRef.current,

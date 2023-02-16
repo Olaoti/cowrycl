@@ -53,13 +53,12 @@
 }
 @media screen and (max-width:1250px) {
     .signup-section{
-        margin: 0 2rem 4rem;
         padding: 7rem;
     }
 }
 @media screen and (max-width:1000px) {
     .signup-section{
-        padding: 5rem 0;
+        padding: 5rem ;
     }
 }
 @media screen and (max-width: 900px) {
@@ -93,7 +92,7 @@
 }
 @media screen and (max-width:500px) {
     .signup-section{
-    padding:3rem .5rem;
+    padding:3rem 2rem;
     &__info{
         font-size: 2.9rem;
         margin-left: 0;
