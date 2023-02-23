@@ -33,6 +33,8 @@
                 padding: 6rem 16% 5rem 4.7vw;
                 z-index: 3;
                 width: 100%;
+                overflow: hidden;
+                height: 100vh;
                 object-fit: cover;
                 .play__section{
                     position: absolute;

@@ -1,13 +1,195 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger);
 
 function Richstep() {
+  const descriptionRef = useRef();
+  const stepsRef = useRef();
+  const barsRef = useRef();
+
+  useEffect(() => {
+    const element = descriptionRef.current;
+    const barselement = barsRef.current;
+    const stepselement = stepsRef.current;
+    gsap.fromTo(
+      element,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 0.3,
+        scrollTrigger: {
+          trigger: descriptionRef.current,
+          start: "top bottom",
+        },
+      }
+    );
+    gsap.fromTo(
+      element.querySelector(".bighead"),
+      { x: "-50" },
+      {
+        scrollTrigger: {
+          trigger: descriptionRef.current,
+          start: "top bottom",
+        },
+        x: 0,
+        duration: 0.2,
+        delay: 0.3,
+      }
+    );
+    gsap.fromTo(
+      element.querySelector(".little"),
+      { y: "50", x: "0", opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: descriptionRef.current,
+          start: "top bottom",
+        },
+        opacity: 1,
+        x: 0,
+        y: 0,
+        duration: 0.3,
+        delay: 0.4,
+      }
+    );
+    gsap.fromTo(
+      element.querySelector("#desctexts"),
+      { x: "40" },
+      {
+        scrollTrigger: {
+          trigger: descriptionRef.current,
+          start: "top bottom",
+        },
+        x: 0,
+        duration: 0.6,
+        delay: 0.5,
+      }
+    );
+    gsap.fromTo(
+      barselement.querySelector("#bar1"),
+      {
+        transform:
+          "matrix(1.2899999618530273,0,0,0,1.9583740234375,1128.6500244140625)",
+        transformOrigin: "0px 0px",
+      },
+      {
+        scrollTrigger: {
+          trigger: barsRef.current,
+          start: "top center",
+        },
+        transform:
+          "matrix(1.2899999618530273,0,0,1,1.9583740234375,1128.6500244140625)",
+        transformOrigin: "0px 0px",
+        marginBottom: 0,
+        duration: 0.9,
+        ease: "ease",
+        delay: 0.6,
+      }
+    );
+    gsap.fromTo(
+      barselement.querySelector("#bar2"),
+      {
+        transform:
+          "matrix(1.2899999618530273,0,0,0,377.6028747558594,788.6500244140625)",
+        transformOrigin: "0px 0px",
+      },
+      {
+        scrollTrigger: {
+          trigger: barsRef.current,
+          start: "top center",
+        },
+        transform:
+          "matrix(1.2899999618530273,0,0,1,377.6028747558594,788.6500244140625)",
+        transformOrigin: "0px 0px",
+        marginBottom: 0,
+        duration: 0.9,
+        ease: "ease",
+        delay: 1,
+      }
+    );
+    gsap.fromTo(
+      barselement.querySelector("#bar3"),
+      {
+        transform:
+          "matrix(1.2899999618530273,0,0,0,752.214111328125,448.6500244140625)",
+        transformOrigin: "0px 0px",
+      },
+      {
+        scrollTrigger: {
+          trigger: barsRef.current,
+          start: "top center",
+        },
+        transform:
+          "matrix(1.2899999618530273,0,0,1,752.214111328125,448.6500244140625)",
+        transformOrigin: "0px 0px",
+        marginBottom: 0,
+        duration: 0.9,
+        ease: "ease",
+        delay: 1.2,
+      }
+    );
+    gsap.fromTo(
+      stepselement.querySelector(".step1"),
+      {
+        opacity: 0,
+        y: -30,
+      },
+      {
+        scrollTrigger: {
+          trigger: barsRef.current,
+          start: "top center",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "ease",
+        delay: 1.2,
+      }
+    );
+    gsap.fromTo(
+      stepselement.querySelector(".step2"),
+      {
+        opacity: 0,
+        y: -30,
+      },
+      {
+        scrollTrigger: {
+          trigger: barsRef.current,
+          start: "top center",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "ease",
+        delay: 1.4,
+      }
+    );
+    gsap.fromTo(
+      stepselement.querySelector(".step3"),
+      {
+        opacity: 0,
+        y: -30,
+      },
+      {
+        scrollTrigger: {
+          trigger: barsRef.current,
+          start: "top center",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "ease",
+        delay: 1.7,
+      }
+    );
+  }, [descriptionRef, stepsRef, barsRef]);
   return (
     <div className="richstep">
-      <div className="richstep__description">
+      <div className="richstep__description" ref={descriptionRef}>
         <div className="bighead">
-          Get a <span className="little">little </span> richer each day
+          Get a <div className="little">little </div> richer each day
         </div>
-        <div className="richstep__description__texts">
+        <div className="richstep__description__texts" id="desctexts">
           One small step today, a giant leap for tomorrow.
         </div>
         <button className="btn">Start Your Financial Journey</button>
@@ -20,6 +202,7 @@ function Richstep() {
             width="1270"
             height="1360"
             preserveAspectRatio="xMidYMid meet"
+            ref={barsRef}
           >
             <defs>
               <clipPath>
@@ -28,6 +211,7 @@ function Richstep() {
             </defs>
             <g>
               <g
+                id="bar1"
                 transform="matrix(1.2899999618530273,0,0,1,1.9583740234375,1128.6500244140625)"
                 opacity="1"
               >
@@ -63,6 +247,7 @@ function Richstep() {
                 </g>
               </g>
               <g
+                id="bar2"
                 transform="matrix(1.2899999618530273,0,0,1,377.6028747558594,788.6500244140625)"
                 opacity="1"
               >
@@ -98,6 +283,7 @@ function Richstep() {
                 </g>
               </g>
               <g
+                id="bar3"
                 transform="matrix(1.2899999618530273,0,0,1,752.214111328125,448.6500244140625)"
                 opacity="1"
               >
@@ -135,7 +321,7 @@ function Richstep() {
             </g>
           </svg>
         </div>
-        <div className="richstep__steps__eachstep">
+        <div className="richstep__steps__eachstep" ref={stepsRef}>
           <div className="step1">
             <div className="stepdesc">
               <div className="heading">Build your savings</div>

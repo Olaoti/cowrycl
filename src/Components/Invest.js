@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger);
 
 function Invest() {
+  const investRef = useRef(null);
+  useEffect(() => {
+    gsap.fromTo(
+      investRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 0.1,
+        scrollTrigger: {
+          trigger: investRef.current,
+          start: "top bottom",
+        },
+      }
+    );
+  }, [investRef]);
   return (
     <div className="invest">
-      <div className="invest__head">
-        You name it, we've figured it out.
-      </div>
-      <div className="invest__section">
+      <div className="invest__head">You name it, we've figured it out.</div>
+      <div className="invest__section" ref={investRef}>
         <div className="invest__section__quote">
           <span>"</span>
           Automate and build my savings

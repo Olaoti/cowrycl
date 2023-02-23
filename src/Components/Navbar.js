@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import plan from "../Assets/navbar/plan.svg";
 import save from "../Assets/navbar/save.svg";
 import invest from "../Assets/navbar/invest.svg";
@@ -9,6 +9,7 @@ import docs from "../Assets/navbar/docs.svg";
 import { ReactComponent as Logo } from "../Assets/logo.svg";
 import { ReactComponent as Expand } from "../Assets/navbar/expand.svg";
 import { ReactComponent as Expandbig } from "../Assets/navbar/expandbig.svg";
+import gsap from "gsap";
 
 //import Link from "react-router-dom";
 
@@ -79,11 +80,6 @@ function Navbar() {
   const [business, setBusiness] = useState(false);
   const [dev, setDev] = useState(false);
 
-  const personalClicked = () => {
-    setPersonal(!personal);
-    setBusiness(false);
-    setDev(false);
-  };
   const businessClicked = () => {
     setBusiness(!business);
     setPersonal(false);
@@ -95,6 +91,50 @@ function Navbar() {
     setPersonal(false);
   };
   const [showMenu, setShowMenu] = useState(false);
+
+  /*declaration of refs*/
+  const animatedHeadRef = useRef(null);
+  const animatedBodyRef1 = useRef(null);
+  const animatedBodyRef2 = useRef(null);
+  const animatedRef = useRef(null);
+
+  const timeline = gsap.timeline({
+    repeat: false,
+    defaults: { duration: 1 },
+    paused: true,
+  });
+
+  useEffect(() => {
+    timeline
+      .fromTo(
+        animatedHeadRef.current,
+        { opacity: 0,duration: 0 },
+        { opacity: 1, duration: 0.5 }
+      )
+      .fromTo(
+        animatedBodyRef1.current,
+        { opacity: 0,duration: 0 },
+        { opacity: 1, duration: 0.5 }
+      )
+      .fromTo(
+        animatedBodyRef2.current,
+        { opacity: 0,duration: 0 },
+        { opacity: 1, duration: 0.5 }
+      )
+      .fromTo(
+        animatedRef.current,
+        { opacity: 0,duration: 0 },
+        { opacity: 1, duration: 0.5 }
+      );
+  }, [personal, timeline]);
+
+  const personalClicked = () => {
+    setPersonal(!personal);
+    setBusiness(false);
+    setDev(false);
+    timeline.restart();
+  };
+
   return (
     <div className={`navbar ${show && "showing"}`}>
       <div className="navbar__section">
@@ -124,15 +164,18 @@ function Navbar() {
             </div>
             <div
               className={`link__section ${
-                personal ? "showsection" : "hidesection"
+                personal ? "showsection" : "hidesection"        
               }`}
             >
-              <div className="link__section__left">
+              <div className="link__section__left" ref={animatedRef}>
                 {links
                   ?.filter((list) => list.id <= 3)
                   .map((link) => {
                     return (
-                      <div className="link-to-page" key={link.id}>
+                      <div
+                        className={`link-to-page animated${link?.id}`}
+                        key={link.id} 
+                      >
                         <div className="image">
                           <img src={link.img} alt="" />
                         </div>
@@ -145,11 +188,13 @@ function Navbar() {
                   })}
               </div>
               <div className="link__section__right">
-                <div className="right__texts__head">Growth Tools</div>
-                <div className="right__texts__body">
+                <div className="right__texts__head" ref={animatedHeadRef}>
+                  Growth Tools
+                </div>
+                <div className="right__texts__body" ref={animatedBodyRef1}>
                   Estimate your interests
                 </div>
-                <div className="right__texts__body">
+                <div className="right__texts__body" ref={animatedBodyRef2}>
                   Know your risk appetite
                 </div>
               </div>

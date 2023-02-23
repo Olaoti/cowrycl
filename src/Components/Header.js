@@ -11,6 +11,8 @@ import { ReactComponent as Pause } from "../Assets/header/pause.svg";
 import { ReactComponent as Playstore } from "../Assets/header/playstore.svg";
 import { ReactComponent as Appstore } from "../Assets/header/appstore.svg";
 
+import gsap from "gsap";
+
 function Header() {
   const [number, setNumber] = useState(0);
   const headerInfo = [
@@ -76,6 +78,31 @@ function Header() {
     setHeaderinfo(newheader);
     videoRef.current.pause();
   };
+
+  const imageRef = useRef();
+  const descRef = useRef();
+  useEffect(() => {
+    gsap.fromTo(videoRef.current, { opacity: 0 }, { opacity: 1, duration: 1 });
+    gsap.fromTo(
+      descRef.current,
+      { scale: 1.2, marginTop: "3.2rem" },
+      { scale: 1, marginTop: 0, duration: 0.8 }
+    );
+    if (window.innerHeight > 550) {
+      gsap.fromTo(
+        imageRef.current,
+        { transform: "rotate(4deg)", height: "20vh", marginTop: "30vh" },
+        { transform: "rotate(0)", height: "85vh", duration: 0.8, marginTop: 0 }
+      );
+    } else {
+      gsap.fromTo(
+        imageRef.current,
+        { transform: "rotate(2deg)", height: "30vh", marginTop: "15vh" },
+        { transform: "rotate(0)", height: "68vh", duration: 0.8, marginTop: 0 }
+      );
+    }
+  }, [number, imageRef]);
+
   return (
     <div className="header">
       <div className="header__section">
@@ -104,13 +131,14 @@ function Header() {
                 </div>
               ) : (
                 <img
+                  ref={imageRef}
                   src={headerInfo[number].img}
                   alt={headerInfo[number].hname}
                 />
               )}
             </div>
           </div>
-          <div className="header__section__personas__description">
+          <div className="header__section__personas__description" ref={descRef}>
             <div className="texts">{headerInfo[number].texts}</div>
             <div className="persona_info">
               <div className="name">{headerInfo[number].hname}</div>
