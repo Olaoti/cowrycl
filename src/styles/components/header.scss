@@ -47,6 +47,7 @@
                     }
                 }
                 img{
+                    position: relative;
                     z-index: 5;
                     object-fit: cover;
                     height: 85vh;
@@ -219,7 +220,7 @@
                 &__description{
                     width: 50%;
                     left: 4rem;
-                    bottom: 8rem;
+                    bottom: 6rem;
                 }
             }
             &__info{
