@@ -206,7 +206,7 @@
             grid-template-columns: 1fr;
             &__personas{
                 order: 1;
-            padding-bottom: 7rem;
+            padding-bottom: 0;
                 .background{
                     width: 70vw;
                 }
@@ -302,7 +302,7 @@
                     width: 75%;
                     padding: 1.4rem 1.6rem;
                     left: 1.8rem;
-                    bottom: 6.4rem;
+                    bottom: 5.6rem;
                 }
             }
         }
