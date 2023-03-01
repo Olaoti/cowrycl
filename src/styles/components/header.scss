@@ -74,7 +74,7 @@
                 width: 47%;
                 position: absolute;
                 z-index: 4;
-                bottom: 8rem;
+                bottom: 7rem;
                 right: 3rem;
                 background-color: white;
                 padding: 2.4rem;
@@ -177,6 +177,9 @@
                 &__image{
                     padding: 6rem 5% 5rem 2vw;
                     }
+                &__description{
+                    width: 65%;
+                }
             }
             &__info{
                 padding-left: 2%;
@@ -216,7 +219,7 @@
                 &__description{
                     width: 50%;
                     left: 4rem;
-                    bottom: 16rem;
+                    bottom: 8rem;
                 }
             }
             &__info{
@@ -298,7 +301,7 @@
                     width: 75%;
                     padding: 1.4rem 1.6rem;
                     left: 1.8rem;
-                    margin-bottom: -3.6rem;
+                    bottom: 6.4rem;
                 }
             }
         }

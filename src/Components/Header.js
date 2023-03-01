@@ -98,7 +98,7 @@ function Header() {
       gsap.fromTo(
         imageRef.current,
         { transform: "rotate(2deg)", height: "30vh", marginTop: "15vh" },
-        { transform: "rotate(0)", height: "68vh", duration: 0.8, marginTop: 0 }
+        { transform: "rotate(0)", height: "68vh", duration: 0.8, marginTop: 0, ease:'ease' }
       );
     }
   }, [number, imageRef]);
