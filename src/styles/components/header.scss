@@ -11,7 +11,7 @@
         padding: 0 3vw;
         &__personas{
             position: relative;
-            padding-bottom: 10rem;
+            padding-bottom: 4rem;
             .background{
                 height: 100%;
                 position: absolute;
@@ -30,11 +30,10 @@
             }
             &__image{
                 position: relative;
-                padding: 6rem 16% 5rem 4.7vw;
+                padding: 6rem 16% 0 4.7vw;
                 z-index: 3;
                 width: 100%;
-                overflow: hidden;
-                height: 100vh;
+                height: auto;
                 object-fit: cover;
                 .play__section{
                     position: absolute;
@@ -47,7 +46,6 @@
                     }
                 }
                 img{
-                    position: relative;
                     z-index: 5;
                     object-fit: cover;
                     height: 85vh;
@@ -75,11 +73,11 @@
                 width: 47%;
                 position: absolute;
                 z-index: 4;
-                bottom: 7rem;
                 right: 3rem;
                 background-color: white;
                 padding: 2.4rem;
-                margin-bottom: 2rem;
+                height: auto;
+                bottom: -2.4rem;
                 .texts{
                     color: $color-neutral;
                     letter-spacing: .2px;
@@ -147,8 +145,8 @@
         width: fit-content;
         z-index: 5;
         position: relative;
-        margin-left: 8vw;
-        margin-top: -11rem;
+        margin-left: 4.7vw;
+        margin-top: 3rem;
         div{
             margin-right: 1rem; 
             height: 4.5rem;
@@ -176,11 +174,8 @@
             padding: 0;
             &__personas{
                 &__image{
-                    padding: 6rem 5% 5rem 2vw;
+                    padding: 6rem 5% 1rem 2vw;
                     }
-                &__description{
-                    width: 65%;
-                }
             }
             &__info{
                 padding-left: 2%;
@@ -220,7 +215,7 @@
                 &__description{
                     width: 50%;
                     left: 4rem;
-                    bottom: 8rem;
+                    bottom: 0;
                 }
             }
             &__info{
@@ -237,7 +232,7 @@
             }
         }
         .select_info{
-            margin-top: -7rem;
+            margin-top: 2rem;
         }
     }
 }
@@ -302,7 +297,6 @@
                     width: 75%;
                     padding: 1.4rem 1.6rem;
                     left: 1.8rem;
-                    bottom: 6.4rem;
                 }
             }
         }

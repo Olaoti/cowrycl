@@ -98,7 +98,13 @@ function Header() {
       gsap.fromTo(
         imageRef.current,
         { transform: "rotate(2deg)", height: "30vh", marginTop: "15vh" },
-        { transform: "rotate(0)", height: "68vh", duration: 0.8, marginTop: 0, ease:'ease' }
+        {
+          transform: "rotate(0)",
+          height: "68vh",
+          duration: 0.8,
+          marginTop: 0,
+          ease: "ease",
+        }
       );
     }
   }, [number, imageRef]);
@@ -109,6 +115,13 @@ function Header() {
         <div className="header__section__personas">
           <div className={`background ${headerInfo[number].background}`}></div>
           <div className="header__section__personas__image">
+          <div className="header__section__personas__description" ref={descRef}>
+            <div className="texts">{headerInfo[number].texts}</div>
+            <div className="persona_info">
+              <div className="name">{headerInfo[number].hname}</div>
+              <div className="handle">{headerInfo[number].handle}</div>
+            </div>
+          </div>
             {headerInfo[number].video && (
               <div className="play__section">
                 {HeaderInfo[number]?.nowplaying ? (
@@ -138,12 +151,19 @@ function Header() {
               )}
             </div>
           </div>
-          <div className="header__section__personas__description" ref={descRef}>
-            <div className="texts">{headerInfo[number].texts}</div>
-            <div className="persona_info">
-              <div className="name">{headerInfo[number].hname}</div>
-              <div className="handle">{headerInfo[number].handle}</div>
-            </div>
+          <div className="select_info">
+            {headerInfo.map((info) => {
+              return (
+                <div key={info.id}>
+                  <img
+                    src={info.img}
+                    onClick={() => setNumber(info.id)}
+                    alt={info.hname}
+                    className={`${info.id !== number && "darken"}`}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="header__section__info">
@@ -169,20 +189,6 @@ function Header() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="select_info">
-        {headerInfo.map((info) => {
-          return (
-            <div key={info.id}>
-              <img
-                src={info.img}
-                onClick={() => setNumber(info.id)}
-                alt={info.hname}
-                className={`${info.id !== number && "darken"}`}
-              />
-            </div>
-          );
-        })}
       </div>
     </div>
   );
