@@ -88,7 +88,7 @@ function Header() {
       { scale: 1.2, marginTop: "3.2rem" },
       { scale: 1, marginTop: 0, duration: 0.8 }
     );
-    if (window.innerHeight > 550) {
+    if (window.innerWidth > 550) {
       gsap.fromTo(
         imageRef.current,
         { transform: "rotate(4deg)", height: "20vh", marginTop: "30vh" },
