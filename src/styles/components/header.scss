@@ -33,6 +33,7 @@
                 padding: 6rem 16% 0 4.7vw;
                 z-index: 3;
                 width: 100%;
+                min-height: 90vh;
                 height: auto;
                 object-fit: cover;
                 .play__section{
@@ -279,6 +280,7 @@
             }
             &__personas{
                 &__image{
+                min-height: 72vh;
                     img{
                         height: 68vh;
                     }
