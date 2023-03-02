@@ -10,7 +10,6 @@ import { ReactComponent as Logo } from "../Assets/logo.svg";
 import { ReactComponent as Expand } from "../Assets/navbar/expand.svg";
 import { ReactComponent as Expandbig } from "../Assets/navbar/expandbig.svg";
 import gsap from "gsap";
-import { TweenMax } from "gsap/gsap-core";
 
 //import Link from "react-router-dom";
 
@@ -88,7 +87,17 @@ function Navbar() {
     setBusiness(false);
     setPersonal(false);
   };
+  const personalClicked = () => {
+    setPersonal(!personal);
+    setBusiness(false);
+    setDev(false);
+  };
+
   const [showMenu, setShowMenu] = useState(false);
+
+  const menubarClicked = () => {
+    setShowMenu(!showMenu);
+  };
 
   /*declaration of refs*/
   const animatedPersonalRef1 = useRef(null);
@@ -243,27 +252,57 @@ function Navbar() {
     );
   }, [dev, devRef]);
 
-  /**general navbar animation */
-  useEffect(() => {
-    if (window.innerWidth < 900) {
-      TweenMax.staggerFromTo(
-        animateRef.current,
-        0.3,
-        {
-          opacity: 0,
-          y: 15,
-        },
-        { opacity: 1, duration: 0.2, y: 0 },
-        0.2
-      );
-    }
-  }, [showMenu, animateRef]);
+  /* navbar animation */
 
-  const personalClicked = () => {
-    setPersonal(!personal);
-    setBusiness(false);
-    setDev(false);
-  };
+  const menuRef = useRef();
+  useEffect(() => {
+    const menuEm = menuRef.current;
+    gsap.fromTo(
+      menuEm.querySelector(".nav-anim1"),
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, delay: 0.5, duration: 0.2 }
+    );
+    gsap.fromTo(
+      menuEm.querySelector(".nav-anim2"),
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, delay: 0.65, duration: 0.2 }
+    );
+    gsap.fromTo(
+      menuEm.querySelector(".nav-anim3"),
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, delay: 0.8, duration: 0.2 }
+    );
+    gsap.fromTo(
+      menuEm.querySelector(".nav-anim4"),
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, delay: 0.85, duration: 0.2 }
+    );
+    gsap.fromTo(
+      menuEm.querySelector(".nav-anim5"),
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, delay: 1, duration: 0.2 }
+    );
+    gsap.fromTo(
+      menuEm.querySelector(".nav-anim6"),
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, delay: 1.1, duration: 0.2 }
+    );
+    gsap.fromTo(
+      menuEm.querySelector(".nav-anim7"),
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, delay: 1.25, duration: 0.2 }
+    );
+    gsap.fromTo(
+      menuEm.querySelector(".nav-anim8"),
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, delay: 1.4, duration: 0.2 }
+    );
+    gsap.fromTo(
+      menuEm.querySelector(".nav-anim9"),
+      { opacity: 0, y: 15 },
+      { opacity: 1, y: 0, delay: 1.5, duration: 0.2 }
+    );
+  }, [showMenu, menuRef]);
 
   return (
     <div className={`navbar ${show && "showing"}`}>
@@ -273,21 +312,18 @@ function Navbar() {
             <Logo fill="#0067F5" />
           </div>
           <div
-            onClick={() => setShowMenu(!showMenu)}
+            onClick={menubarClicked}
             className={`menu ${showMenu ? "cancelicon" : "showicon"}`}
           >
             <span></span>
             <span></span>
           </div>
         </div>
-        <div className={`nav ${showMenu ? "showing" : "hiding"}`}>
+        <div className={`nav ${showMenu ? "showing" : "hiding"}`} ref={menuRef}>
           <div className="personal link" ref={personalRef}>
             <div
-              className="personalhead link-head"
+              className="personalhead link-head nav-anim1"
               onClick={personalClicked}
-              ref={(element) => {
-                animateRef.current[0] = element;
-              }}
             >
               <span className={`${personal && "black"}`}>Personal</span>
               <span className="dropicon">
@@ -336,7 +372,7 @@ function Navbar() {
           </div>
           <div className="business link" ref={businessRef}>
             <div
-              className="businesshead link-head"
+              className="businesshead link-head nav-anim2"
               onClick={businessClicked}
               ref={(element) => {
                 animateRef.current[1] = element;
@@ -378,7 +414,7 @@ function Navbar() {
           </div>
           <div className="developer link">
             <div
-              className="developerhead link-head"
+              className="developerhead link-head nav-anim3"
               onClick={devClicked}
               ref={(element) => {
                 animateRef.current[2] = element;
@@ -439,6 +475,7 @@ function Navbar() {
             }`}
           >
             <div
+              className="nav-anim4"
               ref={(element) => {
                 animateRef.current[3] = element;
               }}
@@ -446,6 +483,7 @@ function Navbar() {
               Sign Up
             </div>
             <div
+              className="nav-anim5"
               ref={(element) => {
                 animateRef.current[4] = element;
               }}
@@ -453,6 +491,7 @@ function Navbar() {
               Log In{" "}
             </div>
             <div
+              className="nav-anim6"
               ref={(element) => {
                 animateRef.current[5] = element;
               }}
@@ -460,6 +499,7 @@ function Navbar() {
               About
             </div>
             <div
+              className="nav-anim7"
               ref={(element) => {
                 animateRef.current[6] = element;
               }}
@@ -467,6 +507,7 @@ function Navbar() {
               FAQs
             </div>
             <div
+              className="nav-anim8"
               ref={(element) => {
                 animateRef.current[7] = element;
               }}
@@ -474,6 +515,7 @@ function Navbar() {
               Security
             </div>
             <div
+              className="nav-anim9"
               ref={(element) => {
                 animateRef.current[8] = element;
               }}

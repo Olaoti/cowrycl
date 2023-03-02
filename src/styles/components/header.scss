@@ -168,6 +168,9 @@
                     cursor: pointer;
                     transition: all 300ms ease-in-out;
                 }
+                &.lighten{
+                    filter: contrast(0);
+                }
             }
         }
     }
@@ -282,10 +285,18 @@
                 }
             }
             &__personas{
-                padding-bottom: 2rem;
+                padding-bottom: 4rem;
                 &__image{
                     .imageCard{
                         min-height: 69vh;
+                        overflow:hidden;
+                        .overlay{
+                            position: absolute;
+                            left: -20vw;
+                            width: 0;
+                            height: 100%;
+                            background-color: white;
+                        }
                         img{
                              height: 68vh;
                         }

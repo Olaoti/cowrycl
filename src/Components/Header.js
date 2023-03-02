@@ -80,29 +80,47 @@ function Header() {
   };
 
   const imageRef = useRef();
+  const overlayRef = useRef();
   const descRef = useRef();
+  const backRef = useRef();
   useEffect(() => {
     gsap.fromTo(videoRef.current, { opacity: 0 }, { opacity: 1, duration: 1 });
-    gsap.fromTo(
-      descRef.current,
-      { scale: 1.2, marginTop: "3.2rem" },
-      { scale: 1, marginTop: 0, duration: 0.8 }
-    );
+
     if (window.innerWidth > 550) {
       gsap.fromTo(
         imageRef.current,
         { transform: "rotate(4deg)", height: "20vh", marginTop: "30vh" },
         { transform: "rotate(0)", height: "85vh", duration: 0.8, marginTop: 0 }
       );
+      gsap.fromTo(
+        descRef.current,
+        { scale: 1.2, marginTop: "3.2rem" },
+        { scale: 1, marginTop: 0, duration: 0.8 }
+      );
     } else {
+      gsap.fromTo(descRef.current, { x: -25 }, { x: 0, duration: 0.8 });
+      gsap.fromTo(
+        overlayRef.current,
+        { width: "100%" },
+        { width: 0, duration: 0.8 }
+      );
       gsap.fromTo(
         imageRef.current,
-        { transform: "rotate(2deg)", height: "30vh", marginTop: "15vh" },
+        { scale: 1.4, opacity: 0 },
         {
-          transform: "rotate(0)",
-          height: "68vh",
+          scale: 1,
+          opacity: 1,
           duration: 0.8,
-          marginTop: 0,
+          ease: "ease",
+        }
+      );
+      gsap.fromTo(
+        backRef.current,
+        { height: 0, opacity: 0 },
+        {
+          height: "100%",
+          opacity: 0.5,
+          duration: 0.8,
           ease: "ease",
         }
       );
@@ -113,7 +131,10 @@ function Header() {
     <div className="header">
       <div className="header__section">
         <div className="header__section__personas">
-          <div className={`background ${headerInfo[number].background}`}></div>
+          <div
+            className={`background ${headerInfo[number].background}`}
+            ref={backRef}
+          ></div>
           <div className="header__section__personas__image">
             <div
               className="header__section__personas__description"
@@ -147,6 +168,7 @@ function Header() {
                 </div>
               ) : (
                 <div className="imageCard">
+                  <div className="overlay" ref={overlayRef}></div>
                   <img
                     ref={imageRef}
                     src={headerInfo[number].img}
@@ -164,7 +186,7 @@ function Header() {
                     src={info.img}
                     onClick={() => setNumber(info.id)}
                     alt={info.hname}
-                    className={`${info.id !== number && "darken"}`}
+                    className={`${info.id == number ? "lighten" : "darken"}`}
                   />
                 </div>
               );

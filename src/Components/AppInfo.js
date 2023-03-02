@@ -10,19 +10,6 @@ function AppInfo() {
   useEffect(() => {
     const element = appinfoRef.current;
     gsap.fromTo(
-      screenshotRef.current,
-      { opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: screenshotRef.current,
-          start: "top center",
-        },
-        opacity: 1,
-        duration: 0.8,
-        delay: 0.1,
-      }
-    );
-    gsap.fromTo(
       element.querySelector(".stepnum1"),
       {
         height: "2.4rem",
@@ -38,7 +25,7 @@ function AppInfo() {
         height: "7rem",
         width: "7rem",
         opacity: 1,
-        backgroundColor: " rgba(163, 225, 250, 0.3)",
+        backgroundColor: " rgba(163, 225, 250, 0.25)",
         duration: 0.5,
         delay: 0.1,
       }
@@ -100,7 +87,7 @@ function AppInfo() {
         height: "7rem",
         width: "7rem",
         opacity: 1,
-        backgroundColor: " rgba(163, 225, 250, 0.3)",
+        backgroundColor: " rgba(163, 225, 250, 0.2)",
         duration: 0.5,
         delay: 1.2,
       }
@@ -151,7 +138,7 @@ function AppInfo() {
       {
         height: "2.4rem",
         width: "2.4rem",
-        backgroundColor: " rgba(163, 225, 250, 0.05)",
+        backgroundColor: " rgba(163, 225, 250, 0.02)",
         opacity: 0.2,
         scale: 1,
         fontSize: "1.8rem",
