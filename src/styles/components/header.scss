@@ -170,7 +170,7 @@
                     transition: all 300ms ease-in-out;
                 }
                 &.lighten{
-                    filter: contrast(1);
+                    filter: grayscale(0) contrast(1);
                 }
             }
         }
