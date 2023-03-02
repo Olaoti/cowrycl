@@ -10,6 +10,7 @@ import { ReactComponent as Logo } from "../Assets/logo.svg";
 import { ReactComponent as Expand } from "../Assets/navbar/expand.svg";
 import { ReactComponent as Expandbig } from "../Assets/navbar/expandbig.svg";
 import gsap from "gsap";
+import { TweenMax } from "gsap/gsap-core";
 
 //import Link from "react-router-dom";
 
@@ -72,9 +73,6 @@ function Navbar() {
       text: "Read how to integrate the Embed Api",
     },
   ];
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const [personal, setPersonal] = useState(false);
   const [business, setBusiness] = useState(false);
@@ -93,46 +91,178 @@ function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
 
   /*declaration of refs*/
-  const animatedHeadRef = useRef(null);
-  const animatedBodyRef1 = useRef(null);
-  const animatedBodyRef2 = useRef(null);
-  const animatedRef = useRef(null);
-
-  const timeline = gsap.timeline({
-    repeat: false,
-    defaults: { duration: 1 },
-    paused: true,
-  });
+  const animatedPersonalRef1 = useRef(null);
+  const animatedPersonalRef2 = useRef(null);
+  const personalRef = useRef(null);
+  const businessRef = useRef(null);
+  const devRef = useRef(null);
+  const animateRef = useRef([]);
+  /* for personal animation*/
 
   useEffect(() => {
-    timeline
-      .fromTo(
-        animatedHeadRef.current,
-        { opacity: 0,duration: 0 },
-        { opacity: 1, duration: 0.5 }
-      )
-      .fromTo(
-        animatedBodyRef1.current,
-        { opacity: 0,duration: 0 },
-        { opacity: 1, duration: 0.5 }
-      )
-      .fromTo(
-        animatedBodyRef2.current,
-        { opacity: 0,duration: 0 },
-        { opacity: 1, duration: 0.5 }
-      )
-      .fromTo(
-        animatedRef.current,
-        { opacity: 0,duration: 0 },
-        { opacity: 1, duration: 0.5 }
+    const personalElement = personalRef.current;
+    gsap.fromTo(
+      personalElement.querySelector(".animated0"),
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 0.1,
+        y: 0,
+        duration: 0.25,
+      }
+    );
+    gsap.fromTo(
+      personalElement.querySelector(".animated1"),
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 0.25,
+        y: 0,
+        duration: 0.25,
+      }
+    );
+    gsap.fromTo(
+      personalElement.querySelector(".animated2"),
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 0.4,
+        y: 0,
+        duration: 0.25,
+      }
+    );
+    gsap.fromTo(
+      personalElement.querySelector(".animated3"),
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 0.55,
+        y: 0,
+        duration: 0.25,
+      }
+    );
+    gsap.fromTo(
+      animatedPersonalRef1.current,
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 0.85,
+        y: 0,
+        duration: 0.25,
+      }
+    );
+    gsap.fromTo(
+      animatedPersonalRef2.current,
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.25,
+        delay: 1,
+      }
+    );
+  }, [personal, personalRef, animatedPersonalRef1, animatedPersonalRef2]);
+
+  /* for business animation*/
+  useEffect(() => {
+    const businessElement = businessRef.current;
+    gsap.fromTo(
+      businessElement.querySelector(".animated4"),
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 0.1,
+        y: 0,
+        duration: 0.4,
+      }
+    );
+  }, [business, businessRef]);
+
+  /* for business animation*/
+  useEffect(() => {
+    const devElement = devRef.current;
+    gsap.fromTo(
+      devElement.querySelector(".animated5"),
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 0.1,
+        y: 0,
+        duration: 0.25,
+      }
+    );
+    gsap.fromTo(
+      devElement.querySelector(".animated6"),
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 0.3,
+        y: 0,
+        duration: 0.25,
+      }
+    );
+    gsap.fromTo(
+      devElement.querySelector(".join-embed"),
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 0.5,
+        y: 0,
+        duration: 0.25,
+      }
+    );
+  }, [dev, devRef]);
+
+  /**general navbar animation */
+  useEffect(() => {
+    if (window.innerWidth < 900) {
+      TweenMax.staggerFromTo(
+        animateRef.current,
+        0.3,
+        {
+          opacity: 0,
+          y: 15,
+        },
+        { opacity: 1, duration: 0.2, y: 0 },
+        0.2
       );
-  }, [personal, timeline]);
+    }
+  }, [showMenu, animateRef]);
 
   const personalClicked = () => {
     setPersonal(!personal);
     setBusiness(false);
     setDev(false);
-    timeline.restart();
   };
 
   return (
@@ -151,8 +281,14 @@ function Navbar() {
           </div>
         </div>
         <div className={`nav ${showMenu ? "showing" : "hiding"}`}>
-          <div className="personal link">
-            <div className="personalhead link-head" onClick={personalClicked}>
+          <div className="personal link" ref={personalRef}>
+            <div
+              className="personalhead link-head"
+              onClick={personalClicked}
+              ref={(element) => {
+                animateRef.current[0] = element;
+              }}
+            >
               <span className={`${personal && "black"}`}>Personal</span>
               <span className="dropicon">
                 <Expand className={`desktop ${personal ? "less" : "more"}`} />
@@ -164,17 +300,17 @@ function Navbar() {
             </div>
             <div
               className={`link__section ${
-                personal ? "showsection" : "hidesection"        
+                personal ? "showsection" : "hidesection"
               }`}
             >
-              <div className="link__section__left" ref={animatedRef}>
+              <div className="link__section__left">
                 {links
                   ?.filter((list) => list.id <= 3)
                   .map((link) => {
                     return (
                       <div
                         className={`link-to-page animated${link?.id}`}
-                        key={link.id} 
+                        key={link.id}
                       >
                         <div className="image">
                           <img src={link.img} alt="" />
@@ -188,20 +324,24 @@ function Navbar() {
                   })}
               </div>
               <div className="link__section__right">
-                <div className="right__texts__head" ref={animatedHeadRef}>
-                  Growth Tools
-                </div>
-                <div className="right__texts__body" ref={animatedBodyRef1}>
+                <div className="right__texts__head">Growth Tools</div>
+                <div className="right__texts__body" ref={animatedPersonalRef1}>
                   Estimate your interests
                 </div>
-                <div className="right__texts__body" ref={animatedBodyRef2}>
+                <div className="right__texts__body" ref={animatedPersonalRef2}>
                   Know your risk appetite
                 </div>
               </div>
             </div>
           </div>
-          <div className="business link">
-            <div className="businesshead link-head" onClick={businessClicked}>
+          <div className="business link" ref={businessRef}>
+            <div
+              className="businesshead link-head"
+              onClick={businessClicked}
+              ref={(element) => {
+                animateRef.current[1] = element;
+              }}
+            >
               <span className={`${business && "black"}`}>Business</span>
               <span className="dropicon">
                 <Expand className={`desktop ${business ? "less" : "more"}`} />
@@ -220,7 +360,10 @@ function Navbar() {
                 ?.filter((list) => list.id === 4)
                 .map((link) => {
                   return (
-                    <div className="link-to-page" key={link.id}>
+                    <div
+                      className={`link-to-page animated${link?.id}`}
+                      key={link.id}
+                    >
                       <div className="image">
                         <img src={link.img} alt="" />
                       </div>
@@ -234,7 +377,14 @@ function Navbar() {
             </div>
           </div>
           <div className="developer link">
-            <div className="developerhead link-head" onClick={devClicked}>
+            <div
+              className="developerhead link-head"
+              onClick={devClicked}
+              ref={(element) => {
+                animateRef.current[2] = element;
+              }}
+            >
+              {" "}
               <span className={`${dev && "black"}`}>Developer</span>
               <span className="dropicon">
                 <Expand className={`desktop ${dev ? "less" : "more"}`} />
@@ -245,6 +395,7 @@ function Navbar() {
               </span>
             </div>
             <div
+              ref={devRef}
               className={`link__section ${dev ? "showsection" : "hidesection"}`}
             >
               <div className="link__section__left">
@@ -252,7 +403,10 @@ function Navbar() {
                   ?.filter((list) => list.id > 4)
                   .map((link) => {
                     return (
-                      <div className="link-to-page" key={link.id}>
+                      <div
+                        className={`link-to-page animated${link?.id}`}
+                        key={link.id}
+                      >
                         <div className="image">
                           <img src={link.img} alt="" />
                         </div>
@@ -266,7 +420,9 @@ function Navbar() {
               </div>
               <div className="link__section__right">
                 <div className="right__texts__head">Connect</div>
-                <div className="right__texts__body">Join Embed on Slack</div>
+                <div className="right__texts__body join-embed">
+                  Join Embed on Slack
+                </div>
               </div>
             </div>
           </div>
@@ -282,12 +438,48 @@ function Navbar() {
               personal || business || dev ? "noshow" : ""
             }`}
           >
-            <div>Sign Up</div>
-            <div>Log In </div>
-            <div>About</div>
-            <div>FAQs</div>
-            <div>Security</div>
-            <div>Learn</div>
+            <div
+              ref={(element) => {
+                animateRef.current[3] = element;
+              }}
+            >
+              Sign Up
+            </div>
+            <div
+              ref={(element) => {
+                animateRef.current[4] = element;
+              }}
+            >
+              Log In{" "}
+            </div>
+            <div
+              ref={(element) => {
+                animateRef.current[5] = element;
+              }}
+            >
+              About
+            </div>
+            <div
+              ref={(element) => {
+                animateRef.current[6] = element;
+              }}
+            >
+              FAQs
+            </div>
+            <div
+              ref={(element) => {
+                animateRef.current[7] = element;
+              }}
+            >
+              Security
+            </div>
+            <div
+              ref={(element) => {
+                animateRef.current[8] = element;
+              }}
+            >
+              Learn
+            </div>
           </div>
         </div>
       </div>

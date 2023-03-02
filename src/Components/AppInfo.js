@@ -18,8 +18,8 @@ function AppInfo() {
           start: "top center",
         },
         opacity: 1,
-        duration: 1,
-        delay: 0.3,
+        duration: 0.8,
+        delay: 0.1,
       }
     );
     gsap.fromTo(
@@ -65,7 +65,7 @@ function AppInfo() {
         height: "100%",
         duration: 1.2,
         ease: "ease",
-        delay: 0.6,
+        delay: 0.5,
       }
     );
     gsap.fromTo(
@@ -102,7 +102,7 @@ function AppInfo() {
         opacity: 1,
         backgroundColor: " rgba(163, 225, 250, 0.3)",
         duration: 0.5,
-        delay: 1.5,
+        delay: 1.2,
       }
     );
     gsap.to(element.querySelector(".stepnum2"), {
@@ -112,7 +112,7 @@ function AppInfo() {
       },
       backgroundColor: " rgba(163, 225, 250, 0)",
       duration: 0.5,
-      delay: 1.9,
+      delay: 1.7,
     });
     gsap.fromTo(
       element.querySelector(".line2"),
@@ -127,7 +127,7 @@ function AppInfo() {
         height: "100%",
         duration: 1.2,
         ease: "ease",
-        delay: 1.8,
+        delay: 1.6,
       }
     );
     gsap.fromTo(
@@ -143,7 +143,7 @@ function AppInfo() {
         opacity: 1,
         duration: 1.4,
         ease: "ease",
-        delay: 1.3,
+        delay: 1.1,
       }
     );
     gsap.fromTo(
@@ -155,7 +155,6 @@ function AppInfo() {
         opacity: 0.2,
         scale: 1,
         fontSize: "1.8rem",
-        delay: 2,
         duration: 0.5,
       },
       {
@@ -169,8 +168,8 @@ function AppInfo() {
         fontSize: "0.9rem",
         opacity: 1,
         backgroundColor: " rgba(163, 225, 250, 0.3)",
-        duration: 0.5,
-        delay: 2.3,
+        duration: 1,
+        delay: 2,
       }
     );
     gsap.to(element.querySelector(".stepnum3"), {
@@ -183,7 +182,7 @@ function AppInfo() {
       scale: 1,
       x: "0",
       fontSize: "1.8rem",
-      delay: 2.7,
+      delay: 3,
     });
     gsap.fromTo(
       element.querySelector(".info3"),

@@ -115,13 +115,16 @@ function Header() {
         <div className="header__section__personas">
           <div className={`background ${headerInfo[number].background}`}></div>
           <div className="header__section__personas__image">
-          <div className="header__section__personas__description" ref={descRef}>
-            <div className="texts">{headerInfo[number].texts}</div>
-            <div className="persona_info">
-              <div className="name">{headerInfo[number].hname}</div>
-              <div className="handle">{headerInfo[number].handle}</div>
+            <div
+              className="header__section__personas__description"
+              ref={descRef}
+            >
+              <div className="texts">{headerInfo[number].texts}</div>
+              <div className="persona_info">
+                <div className="name">{headerInfo[number].hname}</div>
+                <div className="handle">{headerInfo[number].handle}</div>
+              </div>
             </div>
-          </div>
             {headerInfo[number].video && (
               <div className="play__section">
                 {HeaderInfo[number]?.nowplaying ? (
@@ -143,11 +146,13 @@ function Header() {
                   ></video>
                 </div>
               ) : (
-                <img
-                  ref={imageRef}
-                  src={headerInfo[number].img}
-                  alt={headerInfo[number].hname}
-                />
+                <div className="imageCard">
+                  <img
+                    ref={imageRef}
+                    src={headerInfo[number].img}
+                    alt={headerInfo[number].hname}
+                  />
+                </div>
               )}
             </div>
           </div>

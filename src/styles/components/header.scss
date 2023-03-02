@@ -33,7 +33,6 @@
                 padding: 6rem 16% 0 4.7vw;
                 z-index: 3;
                 width: 100%;
-                min-height: 90vh;
                 height: auto;
                 object-fit: cover;
                 .play__section{
@@ -46,12 +45,16 @@
                         height: 3rem;
                     }
                 }
-                img{
-                    z-index: 5;
-                    object-fit: cover;
-                    height: 85vh;
-                    width: 100%;
+                .imageCard{
+                min-height: 86vh;
+                    img{
+                        z-index: 5;
+                        object-fit: cover;
+                        height: 85vh;
+                        width: 100%;
+                    }
                 }
+                
                 div{
                     z-index: 5;
                     .video{
@@ -279,12 +282,15 @@
                 }
             }
             &__personas{
+                padding-bottom: 2rem;
                 &__image{
-                min-height: 72vh;
-                    img{
-                        height: 68vh;
-                    }
-                    div{
+                    .imageCard{
+                        min-height: 69vh;
+                        img{
+                             height: 68vh;
+                        }
+                    }   
+                    div{ 
                         .video{
                             height: 68vh;
                             max-height: 68vh;

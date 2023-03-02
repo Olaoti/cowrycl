@@ -10,36 +10,27 @@ function Reviews() {
       id: 0,
       question: "Got SEC licence?",
       answer: "Yup!",
-      qcolor: "",
-      acolor: "",
     },
     {
       id: 1,
       question: "Saving Charges?",
       answer: "Nope!",
-      qcolor: "",
-      acolor: "",
     },
     {
       id: 2,
       question: "Great Interest Rates?",
       answer: "Confam!",
-      qcolor: "",
-      acolor: "",
     },
     {
       id: 3,
       question: "Maintenance Fees?",
       answer: "No.",
-      qcolor: "",
-      acolor: "",
     },
     {
       id: 4,
       question: "Convinced?",
       answer: "Sign up now!",
-      qcolor: "",
-      acolor: "",
+      acolor: "#0066f5",
     },
   ];
   var [number, setNumber] = useState(0);
@@ -80,10 +71,22 @@ function Reviews() {
     <div className="reviews">
       <div className="reviews__reason">WHY COWRYWISE ?</div>
       <div className="questions-section" ref={sectionRef}>
-        <div className="questions-section__question" ref={questionRef}>
+        <div
+          style={{ color: "rgba(8, 37, 82, 0.6)" }}
+          className="questions-section__question"
+          ref={questionRef}
+        >
           {questionsobj[number].question}
         </div>
-        <div className="questions-section__answer" ref={answerRef}>
+        <div
+          style={
+            questionsobj[number].acolor
+              ? { color: `${questionsobj[number].acolor}` }
+              : { color: " #082552" }
+          }
+          className="questions-section__answer"
+          ref={answerRef}
+        >
           {questionsobj[number].answer}
         </div>
       </div>
