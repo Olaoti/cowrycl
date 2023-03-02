@@ -102,10 +102,10 @@ function Navbar() {
   /*declaration of refs*/
   const animatedPersonalRef1 = useRef(null);
   const animatedPersonalRef2 = useRef(null);
+  const animatedheadRef = useRef(null);
   const personalRef = useRef(null);
   const businessRef = useRef(null);
   const devRef = useRef(null);
-  const animateRef = useRef([]);
   /* for personal animation*/
 
   useEffect(() => {
@@ -163,7 +163,7 @@ function Navbar() {
       }
     );
     gsap.fromTo(
-      animatedPersonalRef1.current,
+      animatedheadRef.current,
       {
         opacity: 0,
         y: 10,
@@ -171,6 +171,19 @@ function Navbar() {
       {
         opacity: 1,
         delay: 0.85,
+        y: 0,
+        duration: 0.25,
+      }
+    );
+    gsap.fromTo(
+      animatedPersonalRef1.current,
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 1,
         y: 0,
         duration: 0.25,
       }
@@ -185,10 +198,16 @@ function Navbar() {
         opacity: 1,
         y: 0,
         duration: 0.25,
-        delay: 1,
+        delay: 1.2,
       }
     );
-  }, [personal, personalRef, animatedPersonalRef1, animatedPersonalRef2]);
+  }, [
+    personal,
+    personalRef,
+    animatedheadRef,
+    animatedPersonalRef1,
+    animatedPersonalRef2,
+  ]);
 
   /* for business animation*/
   useEffect(() => {
@@ -238,7 +257,7 @@ function Navbar() {
       }
     );
     gsap.fromTo(
-      devElement.querySelector(".join-embed"),
+      devElement.querySelector(".connect-embed"),
       {
         opacity: 0,
         y: 10,
@@ -246,6 +265,19 @@ function Navbar() {
       {
         opacity: 1,
         delay: 0.5,
+        y: 0,
+        duration: 0.25,
+      }
+    );
+    gsap.fromTo(
+      devElement.querySelector(".join-embed"),
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        delay: 0.7,
         y: 0,
         duration: 0.25,
       }
@@ -360,7 +392,9 @@ function Navbar() {
                   })}
               </div>
               <div className="link__section__right">
-                <div className="right__texts__head">Growth Tools</div>
+                <div className="right__texts__head" ref={animatedheadRef}>
+                  Growth Tools
+                </div>
                 <div className="right__texts__body" ref={animatedPersonalRef1}>
                   Estimate your interests
                 </div>
@@ -374,9 +408,6 @@ function Navbar() {
             <div
               className="businesshead link-head nav-anim2"
               onClick={businessClicked}
-              ref={(element) => {
-                animateRef.current[1] = element;
-              }}
             >
               <span className={`${business && "black"}`}>Business</span>
               <span className="dropicon">
@@ -416,9 +447,6 @@ function Navbar() {
             <div
               className="developerhead link-head nav-anim3"
               onClick={devClicked}
-              ref={(element) => {
-                animateRef.current[2] = element;
-              }}
             >
               {" "}
               <span className={`${dev && "black"}`}>Developer</span>
@@ -455,7 +483,7 @@ function Navbar() {
                   })}
               </div>
               <div className="link__section__right">
-                <div className="right__texts__head">Connect</div>
+                <div className="right__texts__head connect-embed">Connect</div>
                 <div className="right__texts__body join-embed">
                   Join Embed on Slack
                 </div>
@@ -474,54 +502,12 @@ function Navbar() {
               personal || business || dev ? "noshow" : ""
             }`}
           >
-            <div
-              className="nav-anim4"
-              ref={(element) => {
-                animateRef.current[3] = element;
-              }}
-            >
-              Sign Up
-            </div>
-            <div
-              className="nav-anim5"
-              ref={(element) => {
-                animateRef.current[4] = element;
-              }}
-            >
-              Log In{" "}
-            </div>
-            <div
-              className="nav-anim6"
-              ref={(element) => {
-                animateRef.current[5] = element;
-              }}
-            >
-              About
-            </div>
-            <div
-              className="nav-anim7"
-              ref={(element) => {
-                animateRef.current[6] = element;
-              }}
-            >
-              FAQs
-            </div>
-            <div
-              className="nav-anim8"
-              ref={(element) => {
-                animateRef.current[7] = element;
-              }}
-            >
-              Security
-            </div>
-            <div
-              className="nav-anim9"
-              ref={(element) => {
-                animateRef.current[8] = element;
-              }}
-            >
-              Learn
-            </div>
+            <div className="nav-anim4">Sign Up</div>
+            <div className="nav-anim5">Log In </div>
+            <div className="nav-anim6">About</div>
+            <div className="nav-anim7">FAQs</div>
+            <div className="nav-anim8">Security</div>
+            <div className="nav-anim9">Learn</div>
           </div>
         </div>
       </div>
