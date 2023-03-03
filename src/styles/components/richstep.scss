@@ -4,6 +4,7 @@
     grid-template-columns: 1fr 1fr;
     width: 100%;
     align-items: center;
+    overflow-x: hidden;
     &__description{
         width: 100%;
         .bighead{

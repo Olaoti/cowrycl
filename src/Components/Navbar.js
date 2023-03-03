@@ -355,7 +355,7 @@ function Navbar() {
           <div className="personal link" ref={personalRef}>
             <div
               className="personalhead link-head nav-anim1"
-              onClick={personalClicked}
+              onClick={personalClicked} 
             >
               <span className={`${personal && "black"}`}>Personal</span>
               <span className="dropicon">
