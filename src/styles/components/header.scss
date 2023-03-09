@@ -275,7 +275,7 @@
             &__info{
                 padding: 2rem 2.1rem .7rem;
                 &__head{
-                    font-size: 4.8rem;
+                    font-size: 4.6rem;
                     line-height: 6rem;
                     font-weight: 500;
                     font-family: medium;
@@ -290,7 +290,7 @@
                 padding-bottom: 4rem;
                 &__image{
                     .imageCard{
-                        min-height: 56vh;
+                        min-height: 58vh;
                         overflow:hidden;
                         .overlay{
                             position: absolute;
@@ -300,7 +300,7 @@
                             background-color: white;
                         }
                         img{
-                             height: 56vh;
+                             height: 58vh;
                         }
                     }   
                     div{ 
