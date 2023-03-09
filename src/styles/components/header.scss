@@ -277,9 +277,9 @@
                 &__head{
                     font-size: 5rem;
                     line-height: 6rem;
-                    font-weight: 900;
+                    font-weight: 600;
                     font-family: medium;
-                    letter-spacing: -3px;
+                    letter-spacing: -2px;
                 }
                 &__text{
                     font-size: 2.5rem;
@@ -290,7 +290,7 @@
                 padding-bottom: 4rem;
                 &__image{
                     .imageCard{
-                        min-height: 46vh;
+                        min-height: 54vh;
                         overflow:hidden;
                         .overlay{
                             position: absolute;
@@ -300,7 +300,7 @@
                             background-color: white;
                         }
                         img{
-                             height: 46vh;
+                             height: 54vh;
                         }
                     }   
                     div{ 
