@@ -34,7 +34,7 @@ function Richstep() {
         },
         x: 0,
         duration: 0.2,
-        delay: 0.3,
+        delay: 0.4,
       }
     );
     gsap.fromTo(
@@ -49,7 +49,7 @@ function Richstep() {
         x: 0,
         y: 0,
         duration: 0.3,
-        delay: 0.4,
+        delay: 0.5,
       }
     );
     gsap.fromTo(
@@ -75,7 +75,7 @@ function Richstep() {
       {
         scrollTrigger: {
           trigger: barsRef.current,
-          start: "top center",
+          start: "top bottom",
         },
         transform:
           "matrix(1.2899999618530273,0,0,1,1.9583740234375,1128.6500244140625)",
@@ -96,7 +96,7 @@ function Richstep() {
       {
         scrollTrigger: {
           trigger: barsRef.current,
-          start: "top center",
+          start: "top bottom",
         },
         transform:
           "matrix(1.2899999618530273,0,0,1,377.6028747558594,788.6500244140625)",
@@ -117,7 +117,7 @@ function Richstep() {
       {
         scrollTrigger: {
           trigger: barsRef.current,
-          start: "top center",
+          start: "top bottom",
         },
         transform:
           "matrix(1.2899999618530273,0,0,1,752.214111328125,448.6500244140625)",
