@@ -186,7 +186,7 @@ function Header() {
                     src={info.img}
                     onClick={() => setNumber(info.id)}
                     alt={info.hname}
-                    className={`${info.id == number ? "lighten" : "darken"}`}
+                    className={`${info.id === number ? "lighten" : "darken"}`}
                   />
                 </div>
               );
